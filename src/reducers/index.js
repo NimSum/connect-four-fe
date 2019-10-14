@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { mock } from './mock';
+import { worldChat } from './worldChat';
 
 const rootReducer = combineReducers({
-  mock
+  worldChat
 })
 
 export default rootReducer;
