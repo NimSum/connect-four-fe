@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import WorldChat from '../WorldChat';
 import { connect } from 'react-redux';
 
@@ -10,7 +11,16 @@ function App(props) {
         Connect Four!
         <button onClick={() => props.test('HI')}>TEST</button>
       </header>
-      <WorldChat />
+      <Route 
+        exact path='/home'
+        render={(() => {
+          return (
+            <div>
+              <WorldChat />
+              
+            </div>)
+        })}
+      />
     </div>
   );
 }
