@@ -30,3 +30,7 @@ export function subscribeToWorldChat() {
 export function registerClient(player) {
   socket.emit('register client', player);
 }
+
+export function leaveWorldChat() {
+  socket.emit('leave world chat');
+};
