@@ -12,3 +12,8 @@ export const updateGlobalMessages = message => ({
   type: 'UPDATE_GLOBAL_MESSAGES',
   message
 });
+
+export const updateGridSlots = slots => ({
+  type: 'UPDATE_GRID_SLOTS',
+  slots
+})
