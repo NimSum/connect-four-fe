@@ -5,7 +5,7 @@ function Connect4Grid(props) {
   
   return (
     <div>
-      
+      GRID HERE
     </div>
   )
 };
