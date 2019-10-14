@@ -27,3 +27,6 @@ export function subscribeToWorldChat() {
   socket.on('world chat update', handleWorldChat);
 };
 
+export function registerClient(player) {
+  socket.emit('register client', player);
+}
