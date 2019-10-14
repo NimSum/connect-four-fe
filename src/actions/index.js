@@ -13,7 +13,7 @@ export const updateGlobalMessages = message => ({
   message
 });
 
-export const updateGridSlots = slots => ({
-  type: 'UPDATE_GRID_SLOTS',
-  slots
+export const updateGridSlots = data => ({
+  type: 'UPDATE_GAME',
+  data
 })

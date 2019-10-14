@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import worldChat from './worldChat';
-import gridSlots from './gridSlots';
+import currentGame from './currentGame';
 
 const rootReducer = combineReducers({
   worldChat,
-  gridSlots
+  currentGame
 })
 
 export default rootReducer;

@@ -10,8 +10,9 @@ function Connect4Grid(props) {
   )
 };
 
-const mapStateToProps = ({ gridSlots }) => ({
-  slots: gridSlots
+const mapStateToProps = ({ currentGame }) => ({
+  grid: currentGame.grid,
+  currentPlayer: currentGame.currentPlayer
 })
 
 export default connect(mapStateToProps)(Connect4Grid);
