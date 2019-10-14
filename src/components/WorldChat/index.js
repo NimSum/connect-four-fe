@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
-function WorldChat() {
+function WorldChat(props) {
 
+  return (
+    <div>
+
+    </div>
+  )
 };
 
-export default WorldChat
+const mapStateToProps = ({ worldChat }) => ({
+  messages: worldChat.messages,
+  players: worldChat.players
+})
+
+export default connect(mapStateToProps)(WorldChat)
