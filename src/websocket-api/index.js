@@ -11,3 +11,6 @@ const {
 socket.on('world chat update', handleWorldChat);
 socket.on('send world chat players', handleAllWorldPlayers);
 
+export function sendWorldMessage(message) {
+  socket.emit('broadcast to world chat', message)
+};
