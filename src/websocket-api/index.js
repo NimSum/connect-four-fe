@@ -19,3 +19,7 @@ export function joinWorldChat(player) {
   socket.emit('join world chat', player);
 };
 
+export function getWorldChatPlayers() {
+  socket.emit('get world chat players');
+}
+
