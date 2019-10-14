@@ -12,6 +12,10 @@ function WorldChat(props) {
     getWorldChatPlayers();
   };
 
+  const leaveChat = () => {
+    leaveWorldChat();
+  }
+  
   useEffect(() => joinChat(), []);
 
   const generateChatElements = () => props.messages.map(({ message, player_name }) => <div>
@@ -28,6 +32,9 @@ function WorldChat(props) {
         sendWorldMessage(newMessage);
       }}> SEND </button>
       <input type='text' onChange={(e) => setNewMessage(e.target.value)} />
+      <button onClick={() => {
+        leaveChat();
+      }}> LEAVE WORLD CHAT </button>
 
       { generateChatElements() }
 
