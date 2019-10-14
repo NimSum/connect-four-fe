@@ -8,3 +8,7 @@ export const setGlobalPlayers = players => ({
   players
 })
 
+export const updateGlobalMessages = message => ({
+  type: 'UPDATE_GLOBAL_MESSAGES',
+  message
+});
