@@ -23,3 +23,7 @@ export function getWorldChatPlayers() {
   socket.emit('get world chat players');
 }
 
+export function subscribeToWorldChat() {
+  socket.on('world chat update', handleWorldChat);
+};
+
