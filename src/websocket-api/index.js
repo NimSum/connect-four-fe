@@ -14,3 +14,8 @@ socket.on('send world chat players', handleAllWorldPlayers);
 export function sendWorldMessage(message) {
   socket.emit('broadcast to world chat', message)
 };
+
+export function joinWorldChat(player) {
+  socket.emit('join world chat', player);
+};
+
