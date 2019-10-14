@@ -4,12 +4,14 @@ import { joinWorldChat, sendWorldMessage, leaveWorldChat, getWorldChatPlayers } 
 
 
 function WorldChat(props) {
+  const [ newMessage, setNewMessage ] = useState([]);
+
   const joinChat = () => {
     const user = { player_name: Date.now() };
     joinWorldChat(user);
     getWorldChatPlayers();
   };
-  
+
   useEffect(() => joinChat(), []);
 
   const generateChatElements = () => props.messages.map(({ message, player_name }) => <div>
@@ -22,7 +24,15 @@ function WorldChat(props) {
   
   return (
     <div>
+      <button onClick={() => {
+        sendWorldMessage(newMessage);
+      }}> SEND </button>
+      <input type='text' onChange={(e) => setNewMessage(e.target.value)} />
 
+      { generateChatElements() }
+
+      <h3>Available Players</h3>
+      { generateAvailablePlayers() }
     </div>
   )
 };
