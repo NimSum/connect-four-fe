@@ -8,3 +8,6 @@ const {
   handleAllWorldPlayers
 } = eventHandlers;
 
+socket.on('world chat update', handleWorldChat);
+socket.on('send world chat players', handleAllWorldPlayers);
+
