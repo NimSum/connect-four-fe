@@ -24,4 +24,35 @@ export default function(grid) {
     [grid[0][2], grid[1][3], grid[2][4], grid[3][5], grid[4][6]],
     [grid[0][3], grid[1][4], grid[2][5], grid[3][6]]
   ];
+
+  const checkWinner = player => {
+    const gridMap = [
+      ...grid,
+      ...gridY,
+      ...botLeftTopRight,
+      ...topLeftBotRight
+    ];
+
+    for (let row of gridMap) {
+      let inOrderCounter = 0;
+      let prevSlot = 0;
+
+      for (let slot of row) {
+        prevSlot === player && slot === prevSlot
+          ? inOrderCounter++
+          : inOrderCounter = 0;
+        prevSlot = slot;
+        
+        if (inOrderCounter >= 3) {
+          return true;
+        };
+      }
+      inOrderCounter = 0;
+      prevSlot = 0;
+    };
+
+    return false;
+  };
+
+  return checkWinner;
 };
