@@ -17,3 +17,8 @@ export const updateGridSlots = data => ({
   type: 'UPDATE_GAME',
   data
 })
+
+export const saveCurrentPlayer = player => ({
+  type: 'SAVE_PLAYER_INFO',
+  player
+})
