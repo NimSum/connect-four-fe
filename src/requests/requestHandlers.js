@@ -9,6 +9,12 @@ const handlers = {
       body: JSON.stringify(payload),
       headers: { "Content-Type": "application/json" }
     });
+  },
+  loginViaEmail: function(payload) {
+    return this.noTokenPost(this.routes.login, payload)
+  },
+  signupUser: function(payload) {
+    return this.noTokenPost(this.routes.signup, payload)
   }
 };
 
