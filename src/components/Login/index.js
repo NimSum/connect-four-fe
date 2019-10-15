@@ -8,6 +8,17 @@ function Login(props) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState({});
 
+  const loginUser = async () => {
+    setLoading(true);
+    try {
+      const user = await request('login', { email, password });
+      if (!user.ok) throw await user.json();
+    } catch(err) {
+      setError(err);
+    }
+    setLoading(false);
+  };
+
   return (
     <div>
       <input type="email" 
@@ -18,6 +29,7 @@ function Login(props) {
         placeholder={password}/>
       <h4>{isLoading && 'Logging in...'}</h4>
       <h4>{error.error && error.error}</h4>
+      <button onClick={loginUser}>Submit</button>
     </div>
   )
 };
