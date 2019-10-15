@@ -15,6 +15,15 @@ const handlers = {
   },
   signupUser: function(payload) {
     return this.noTokenPost(this.routes.signup, payload)
+  },
+  loginViaToken: function(token) {
+    return fetch(this.routes.login, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    });
   }
 };
 
