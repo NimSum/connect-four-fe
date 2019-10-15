@@ -54,5 +54,7 @@ export default function(grid) {
     return false;
   };
 
-  return checkWinner;
+  return {
+    checkWinner
+  };
 };

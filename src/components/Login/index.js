@@ -8,11 +8,16 @@ function Login(props) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState({});
 
+  const updateCurrentUser = user => {
+    console.log(user);
+  };
+
   const loginUser = async () => {
     setLoading(true);
     try {
       const user = await request('login', { email, password });
       if (!user.ok) throw await user.json();
+      else updateCurrentUser(await user.json());
     } catch(err) {
       setError(err);
     }
