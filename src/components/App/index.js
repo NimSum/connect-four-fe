@@ -1,21 +1,8 @@
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import WorldChat from '../WorldChat';
-import { registerClient, removeClient } from '../../websocket-api';
-import Connect4Grid from '../Connect4Grid';
+import React, { useEffect, useState } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Login from '../Login';
 
 function App(props) {
-  const player = {
-    id: 'Date.now().toString()',
-    player_name: Date.now().toString()
-  }
-  useEffect(() => {
-    registerClient(player);
-    return () => removeClient(player);
-  }, [player])
-
   return (
     <div className="App">
       <header className="App-header">
@@ -27,7 +14,6 @@ function App(props) {
         render={(() => {
           return (
             <div>
-              <Login />
             </div>)
         })}
       />
@@ -36,16 +22,14 @@ function App(props) {
         render={(() => {
           return (
             <div>
-              <WorldChat />
             </div>)
         })}
       />
       <Route 
-        exact path='/play_game'
+        exact path='/active_game'
         render={(() => {
           return (
             <div>
-              <Connect4Grid />
             </div>)
         })}
       />
