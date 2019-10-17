@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { RBButton } from '../Buttons';
+import { leaveWorldChat } from '../../websocket-api';
+import { saveCurrentPlayer } from '../../actions';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,11 +14,11 @@ const useStyles = makeStyles({
     flexGrow: 1
   },
   appBar: {
-    background: (props) => props.cyan.light,
+    background: (props) => props.cyan.main,
   },
   title: {
     flexGrow: 1,
-    color: (props) => props.deepPurple.dark
+    color: (props) => props.deepPurple.light
   },
 });
 
@@ -24,7 +26,9 @@ function Header(props) {
   const classes = useStyles(theme.palette);
 
   const handleLogout = () => {
-    /// LOGOUT USER
+    leaveWorldChat();
+    props.deletePlayer();
+    localStorage.removeItem('connect_four_token');
   }
 
   const handleDetails = () => {
@@ -33,8 +37,8 @@ function Header(props) {
 
   const menuButtons = (
     <div>
-      <RBButton colorType="blue" name="My Details" clickHandler={handleLogout} />
-      <RBButton colorType="red" name="Logout" clickHandler={handleDetails} />
+      <RBButton colorType="blue" name="My Details" clickHandler={handleDetails} />
+      <RBButton colorType="red" name="Logout" clickHandler={handleLogout} />
     </div>
   )
 
@@ -58,4 +62,8 @@ const mapStateToProps = ({ currentPlayer }) => ({
   isActive: currentPlayer.token
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  deletePlayer: () => dispatch(saveCurrentPlayer({})),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
