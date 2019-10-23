@@ -1,4 +1,4 @@
-export const worldChat = (state = { players: [], messages: [] } , action) => {
+const worldChat = (state = { players: [], messages: [] } , action) => {
   let { players, messages } = state;
 
   switch(action.type) {
@@ -21,3 +21,5 @@ export const worldChat = (state = { players: [], messages: [] } , action) => {
       return state;
   }
 };
+
+export default worldChat;
