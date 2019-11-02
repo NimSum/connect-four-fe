@@ -65,6 +65,12 @@ export function leaveGame() {
   socket.emit('leave game room');
 };
 
+
+//// Active Game
+export function listenToActiveGame() {
+  socket.on('active game update', handleActiveGameUpdate);
+};
+
 export function unsubscribeToActiveGame() {
   socket.removeListener('active game update')
 } 
