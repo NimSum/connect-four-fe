@@ -5,13 +5,13 @@ export default function(type, payload) {
     case 'login':
       return handler.loginViaEmail(payload);
     case 'tokenLogin':
-      const token = JSON.parse(localStorage.getItem('user_token')) || payload;
-      handler.loginViaToken(token);
-      break;
+      const token = JSON.parse(localStorage.getItem('connect_four_token')) || payload;
+      return handler.loginViaToken(token);
     case 'signupUser':
-      handler.signupUser(payload);
-      break;
+      return handler.signupUser(payload);
+    case 'anonymousLogin':
+      return handler.anonymousLogin(payload);
     default:
       console.log('def');
   }
-}
+};
