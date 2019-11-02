@@ -16,6 +16,10 @@ import PlayerDrawer from '../PlayerDrawer';
 import Splash from '../Splash';
 
 function App(props) {
+  const classes = useStyles(theme);
+  const [isDrawerOpen, openDrawer] = useState(false);
+  const [error, setError] = useState({});
+
 
   const registerPlayer = (player) => {
     props.savePlayer(player);
