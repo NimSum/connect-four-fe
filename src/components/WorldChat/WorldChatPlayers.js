@@ -12,6 +12,21 @@ import theme from '../../MUI_theme';
 import uuidv4 from 'uuid/v4';
 
 function WorldChatPlayers(props) {
+  return (
+    <List
+      className={classes.root}
+      aria-labelledby="world-chat-players"
+      subheader={
+        <ListSubheader component="div" id="world-chat-players">
+          Online Players
+        </ListSubheader>
+      }>
+      <Divider />
+      {generatePlayerCards()}
+    </List>
+  );
+};
+
 const mapStateToProps = ({ worldChat }) => ({
   players: worldChat.players,
 })
