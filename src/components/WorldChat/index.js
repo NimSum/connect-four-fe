@@ -8,6 +8,35 @@ import Switch from '@material-ui/core/Switch';
 import theme from '../../MUI_theme';
 import ChatBox from '../ChatBox';
 
+const useStyles = makeStyles(theme => ({
+  container: {
+    padding: theme.spacing(2, 0, 2, 2),
+    margin: 'auto',
+    maxWidth: '700px',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    minHeight: '92vh',
+    height: '100%',
+    [theme.breakpoints.down('md')]: {
+      paddingRight: theme.spacing(2)
+    }
+  },
+  chatToggle: {
+    position: 'absolute',
+    right: '10px',
+    top: '20px',
+    zIndex: 1
+  },
+  chatBox: {
+    height: '60%',  
+    display: 'flex',
+    width: '100%',
+    position: 'relative',
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: theme.spacing(1, 1, 0, 0)
+  },
+}));
 
 function WorldChat(props) {
   const classes = useStyles(theme);
