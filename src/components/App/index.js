@@ -53,11 +53,9 @@ function App(props) {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        Connect Four!
-        <button onClick={() => props.test('HI')}>TEST</button>
-      </header>
+    <div className={classes.root}>
+      <Header toggleDrawer={handleDrawerToggle} />
+      { props.player.token && <PlayerDrawer isVisible={isDrawerOpen} toggleDrawer={handleDrawerToggle}/>}
       <Route 
         exact path='/'
         render={(() => {
@@ -88,15 +86,21 @@ function App(props) {
         exact path='/active_game'
         render={(() => {
           return (
-            <div>
-            </div>)
-        })}
+           <Connect4Grid />
+          )
+          })
+        }
       />
     </div>
   );
 }
 
 const mapDispatchToProps = dispatch => ({
+  savePlayer: player => dispatch(saveCurrentPlayer(player))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToDispatch = ({ currentPlayer }) => ({
+  player: currentPlayer
+});
+
+export default connect(mapStateToDispatch, mapDispatchToProps)(App);
