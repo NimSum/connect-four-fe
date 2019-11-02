@@ -29,6 +29,21 @@ function Splash() {
     chipOne,
     chipTwo
   });
+
+  const placeRandomChip = useCallback(() => {
+    const randIdx = Math.floor(Math.random() * grid.length);
+
+    for (let i = grid[randIdx].length - 1; i >= 0; i--) {
+      if (grid[randIdx][i] === 0) {
+        const copy = [...grid];
+        copy[randIdx][i] = currChip;
+        setGrid(copy);
+        setCurrSlot([randIdx, i]);
+        currChip === 1 ? setCurrChip(2) :  setCurrChip(1) ;
+        break;
+      };
+    };
+  }, [setCurrChip, currChip, grid]);
   return (
     <Box className={classes.root}>
       <Box boxShadow={3} className={classes.gridContainer}>
