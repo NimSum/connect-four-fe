@@ -4,6 +4,53 @@ import theme from '../../MUI_theme';
 import Box from '@material-ui/core/Box';
 import Grow from '@material-ui/core/Grow';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    background: ({palette}) => palette.dark.midBlue,   
+  },
+  gridContainer: {
+    overflow: 'hidden',
+    display: 'flex',
+    padding: theme.spacing(1),
+    justifyContent: 'center',
+    borderRadius: '0 0 10px 10px',    
+  },
+  column: {
+    dispaly: 'flex',
+    flexDirection: 'column',
+  }, 
+  slot: {
+    borderRadius: '50%',
+    width: '11vw',
+    height: '11vw',
+    margin: '1vw',
+    maxWidth: '140px',
+    maxHeight: '140px',
+    [theme.breakpoints.down('sm')]: {
+      width: '10vh',
+      height: '10vh',
+      margin: '1vh'
+    }
+  },
+  emptySlot: {
+    background: ({palette}) => palette.light.lighterGray
+  },
+  chipOne: {
+    background: ({chipOne}) => chipOne
+  },
+  chipTwo: {
+    background: ({chipTwo}) => chipTwo
+  },
+}));
+
+const slotProps = {
+  m: 1,
+  boxShadow: 3
+};
+
 function Splash() {
   const randomizedColors = Object.values(theme.palette.chips)
     .sort(() => .5 - Math.random());
