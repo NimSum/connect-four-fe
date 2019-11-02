@@ -1,4 +1,16 @@
-import { updateGlobalPlayers, removeClient, registerClient, updateGridSlots, updateGlobalMessages, setGlobalPlayers } from '../actions';
+import { 
+  updateGlobalPlayers,
+  updateActiveGame,
+  updateGlobalMessages,
+  setGlobalPlayers,
+  setAllGameRooms,
+  updateGameRoomList,
+  updateGameRoom,
+  updateActiveGameMsgs,
+  updateInactiveGame,
+  gameOver,
+  logoutUser 
+} from '../actions';
 import store from '../index';
 
 
