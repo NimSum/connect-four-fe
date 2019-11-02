@@ -42,3 +42,40 @@ export const updateGameRoom = room => ({
   room
 })
 
+
+/// IN GAME ACTIION
+export const updateActiveGame = data => ({
+  type: 'UPDATE_ACTIVE_GAME',
+  data
+})
+
+export const updateInactiveGame = data => ({
+  type: 'UPDATE_INACTIVE_GAME',
+  data
+})
+
+export const leaveActiveGame = () => ({
+  type: 'LEAVE_ACTIVE_GAME',
+})
+
+export const updateActiveGameMsgs = data => ({
+  type: 'UPDATE_ACTIVE_GAME_MSGS',
+  data
+})
+
+export const gameOver = data => ({
+  type: 'GAME_OVER',
+  data
+})
+
+export const rematchReset = () => ({
+  type: 'REMATCH_GAME_RESET',
+})
+
+export const resetReady = () => ({
+  type: 'RESET_PLAYER_READY',
+})
+
+export const resetGrid = () => ({
+  type: 'RESET_GRID',
+})
