@@ -9,10 +9,15 @@ import {
 } from './handlers';
 
 const socket = openSocket('http://localhost:3000');
+// const socket = openSocket('http://ec2-34-205-32-52.compute-1.amazonaws.com:3000');
 
+//// AUTO WORLD CHAT 
 socket.on('world chat update', handleWorldChat);
 socket.on('send world chat players', handleAllWorldPlayers);
-socket.emit('create game room', {name: Date.now().toString()})
+//// AUTO GAME ROOMS
+socket.on('send all game rooms', handleAllGameRooms);
+socket.on('game rooms update', handleGameRoomUpdate);
+socket.on('disconnect', handleDisconnect);
 
 export function sendWorldMessage(message) {
   socket.emit('broadcast to world chat', message)
