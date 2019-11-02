@@ -2,7 +2,10 @@ import openSocket from 'socket.io-client';
 import {
   handleWorldChat,
   handleAllWorldPlayers,
-  handleGameUpdate
+  handleAllGameRooms,
+  handleGameRoomUpdate,
+  handleActiveGameUpdate,
+  handleDisconnect
 } from './handlers';
 
 const socket = openSocket('http://localhost:3000');
