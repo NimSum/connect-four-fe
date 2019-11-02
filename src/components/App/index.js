@@ -3,6 +3,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function App(props) {
+
+  const registerPlayer = (player) => {
+    props.savePlayer(player);
+    registerClient(player.token);
+    if (player.type !== 'anonymous') {
+      localStorage.setItem('connect_four_token', JSON.stringify(player.token));
+    }
+  };
+
   const tokenLogin = async () => {
     const token = JSON.parse(localStorage.getItem('connect_four_token')) || false;
 
