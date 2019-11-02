@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { registerClient, removeClient } from '../../websocket-api';
 import { connect } from 'react-redux';
+import { saveCurrentPlayer } from '../../actions';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
+import WorldChat from '../WorldChat';
+import Header from '../Header';
+import GameRooms from '../GameRooms';
+import Connect4Grid from '../ActiveGame';
+import PlayerForms from '../PlayerForms';
+import request from '../../requests';
+import theme from '../../MUI_theme';
+import PlayerDrawer from '../PlayerDrawer';
+import Splash from '../Splash';
 
 function App(props) {
 
