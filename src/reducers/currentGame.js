@@ -32,8 +32,16 @@ const currentGame = (state = initialState, action) => {
   if (prevSlot) gridCopy[prevSlot[0]][prevSlot[1]] = prevSlot[2];
 
   switch(action.type) {
-    case 'UPDATE_GAME':
-      return  action.data;
+    case 'UPDATE_ACTIVE_GAME':
+      return { 
+        gridX: gridCopy, 
+        currentPlayer: action.data.currentPlayer, 
+        messages: state.messages, 
+        status: action.data.status, 
+        players: state.players,
+        prevSlot,
+        winner: initialState.winner
+      };
     default:
       return state;
   }
