@@ -79,3 +79,7 @@ export function setPlayerReady(data) {
   socket.emit('set player ready', data);
 };
 
+export function placePlayerChip(xCoordinate) {
+  socket.emit('place player chip', xCoordinate);
+};
+
