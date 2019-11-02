@@ -42,6 +42,16 @@ const currentGame = (state = initialState, action) => {
         prevSlot,
         winner: initialState.winner
       };
+    case 'UPDATE_INACTIVE_GAME':
+      return { 
+        gridX: state.gridX, 
+        currentPlayer: state.currentPlayer, 
+        messages: state.messages, 
+        status: action.data.status, 
+        players: action.data.players,
+        prevSlot: state.prevSlot,
+        winner: null
+      };
     default:
       return state;
   }
