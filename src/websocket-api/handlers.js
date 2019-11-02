@@ -33,6 +33,14 @@ export function handleAllGameRooms(rooms) {
   store.dispatch(setAllGameRooms(rooms));
 } 
 
+export function handleGameRoomUpdate(update) {
+  const { updateType } = update;
+  if (['addRoom', 'deleteRoom'].includes(updateType)) {
+    store.dispatch(updateGameRoomList(update));
+  } else if (updateType === 'updateRoom') {
+    store.dispatch(updateGameRoom(update))
+  }
+}
   
   store.dispatch(updateGridSlots({currentPlayer, grid}));
 };
