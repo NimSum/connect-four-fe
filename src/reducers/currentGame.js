@@ -27,6 +27,10 @@ const initialState = {
 };
 
 const currentGame = (state = initialState, action) => {
+  const {prevSlot} = action.data || state;
+  const gridCopy = [...state.gridX];
+  if (prevSlot) gridCopy[prevSlot[0]][prevSlot[1]] = prevSlot[2];
+
   switch(action.type) {
     case 'UPDATE_GAME':
       return  action.data;
