@@ -66,6 +66,32 @@ function Splash() {
         return emptySlot
     }
   };
+
+  const connectFourGrid = grid.map((column, i) => {
+    return (
+      <Box key={`col${i}`}  className={classes.column}>
+        {
+          column.map((gridSlot, j) => {
+            const ifNew = (i === currSlot[0] && j === currSlot[1]);
+            const colorChip = (
+              <Box className={`${classes.slot} ${handleSlotStyle(gridSlot, gridSlot )}`} {...slotProps} />
+            );
+            const slidingChip = (
+              <Grow
+                key={`col${i}row${j}chip${gridSlot}`}
+                in={ifNew} 
+                direction='down'
+                timeout={800}>
+                {colorChip}
+              </Grow>
+            );     
+            return ifNew ? slidingChip : colorChip;
+          })
+        }
+      </Box>
+    )
+  });
+
   return (
     <Box className={classes.root}>
       <Box boxShadow={3} className={classes.gridContainer}>
@@ -74,4 +100,5 @@ function Splash() {
     </Box>
   )
 };
+
 export default Splash
