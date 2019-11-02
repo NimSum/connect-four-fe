@@ -12,6 +12,22 @@ import theme from '../../MUI_theme';
 import uuidv4 from 'uuid/v4';
 
 function WorldChatPlayers(props) {
+  const classes = useStyles(theme);
+  const { players } = props;
+
+  const generatePlayerCards = () => players.map(player => {
+    const { player_name } = player;
+    return (
+      <ListItem button className={classes.playerCard} key={uuidv4()}>
+          <ListItemAvatar>
+            {generateAvatar(player_name)}
+          </ListItemAvatar>
+        <ListItemText primary={player_name} />
+        <Divider />
+      </ListItem>
+    )
+  });
+
   return (
     <List
       className={classes.root}
