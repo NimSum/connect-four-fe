@@ -17,6 +17,8 @@ const worldChat = (state = { players: [], messages: [] } , action) => {
       return { players, messages: [...messages, action.message] };
     case 'UPDATE_GLOBAL_CHAT':
       return { players: action.players, messages: action.messages };
+    case 'LOGOUT_USER':
+      return { players: [], messages: [] };
     default:
       return state;
   }
