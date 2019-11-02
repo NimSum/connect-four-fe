@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { joinWorldChat, sendWorldMessage, leaveWorldChat, getWorldChatPlayers } from '../../websocket-api';
+import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import WorldChatPlayers from './WorldChatPlayers';
+import Switch from '@material-ui/core/Switch';
+import theme from '../../MUI_theme';
+import ChatBox from '../ChatBox';
 
 
 function WorldChat(props) {
