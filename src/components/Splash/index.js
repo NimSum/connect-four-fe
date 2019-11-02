@@ -49,6 +49,23 @@ function Splash() {
     const timout = setInterval(placeRandomChip, 1300);
     return () => clearInterval(timout);
   }, [placeRandomChip])
+
+  const handleSlotStyle = (slot, currChip) => {
+    const {
+      chipOne,
+      chipTwo,
+      emptySlot
+    } = classes;
+
+    switch (true) {
+      case currChip === 1:
+        return chipOne
+      case currChip === 2:
+          return chipTwo
+      default:
+        return emptySlot
+    }
+  };
   return (
     <Box className={classes.root}>
       <Box boxShadow={3} className={classes.gridContainer}>
