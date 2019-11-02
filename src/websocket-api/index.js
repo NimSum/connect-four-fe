@@ -61,7 +61,10 @@ export function joinGameRoom(roomId, password = '') {
   socket.emit('join game room', {roomId, password});
 };
 
-export function updateCurrentGame() {
-  socket.on('game update', handleGameUpdate);
-  socket.emit('update the game');
+export function leaveGame() {
+  socket.emit('leave game room');
+};
+
+export function unsubscribeToActiveGame() {
+  socket.removeListener('active game update')
 } 
