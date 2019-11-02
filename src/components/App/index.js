@@ -41,8 +41,11 @@ function App(props) {
       <Route 
         exact path='/'
         render={(() => {
+          if (props.player.token) return <Redirect to='/home'/>;
           return (
-            <div>
+            <div className={classes.loginPageContainer}>
+              <Splash />
+              <PlayerForms registerPlayer={registerPlayer} />
             </div>)
         })}
       />
