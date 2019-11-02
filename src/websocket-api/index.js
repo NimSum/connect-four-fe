@@ -19,8 +19,13 @@ socket.on('send all game rooms', handleAllGameRooms);
 socket.on('game rooms update', handleGameRoomUpdate);
 socket.on('disconnect', handleDisconnect);
 
+/// WORLD CHAT
 export function sendWorldMessage(message) {
   socket.emit('broadcast to world chat', message)
+};
+
+export function leaveWorldChat() {
+  socket.emit('leave world chat');
 };
 
 export function joinWorldChat(player) {
