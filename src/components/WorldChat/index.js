@@ -86,9 +86,10 @@ function WorldChat(props) {
   )
 };
 
-const mapStateToProps = ({ worldChat }) => ({
+const mapStateToProps = ({ worldChat, currentPlayer }) => ({
   messages: worldChat.messages,
-  players: worldChat.players
+  me: currentPlayer.player,
+  token: currentPlayer.token
 })
 
 export default connect(mapStateToProps)(WorldChat)
