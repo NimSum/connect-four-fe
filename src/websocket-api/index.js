@@ -40,12 +40,18 @@ export function subscribeToWorldChat() {
   socket.on('world chat update', handleWorldChat);
 };
 
-export function registerClient(player) {
-  socket.emit('register client', player);
+
+/// CLIENT REGISTRATION
+export function registerClient(token) {
+  socket.emit('register client', token);
 }
 
-export function removeClient(player) {
-  socket.emit('remove client', player);
+export function removeClient(token) {
+  socket.emit('remove client', token);
+};
+
+
+
 };
 
 export function leaveWorldChat() {
