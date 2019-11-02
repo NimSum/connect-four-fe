@@ -20,6 +20,9 @@ function App(props) {
   const [isDrawerOpen, openDrawer] = useState(false);
   const [error, setError] = useState({});
 
+  const handleDrawerToggle = () => {
+    openDrawer(!isDrawerOpen);
+  };  
 
   const registerPlayer = (player) => {
     props.savePlayer(player);
