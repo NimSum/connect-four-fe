@@ -52,10 +52,13 @@ export function removeClient(token) {
 
 
 
+/// GAME ROOMS
+export function createNewGameRoom(name, password = '') {
+  socket.emit('create game room', { name, password });
 };
 
-export function leaveWorldChat() {
-  socket.emit('leave world chat');
+export function joinGameRoom(roomId, password = '') {
+  socket.emit('join game room', {roomId, password});
 };
 
 export function updateCurrentGame() {
