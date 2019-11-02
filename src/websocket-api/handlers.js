@@ -64,7 +64,7 @@ export function handleRegisterClient() {
   console.log(player)
 };
 
-export function handleRemoveClient() {
-  const player = store.getState('currentGame');
-  console.log(player)
-};
+//// OTHER
+export function handleDisconnect() {
+  store.dispatch(logoutUser());
+}
