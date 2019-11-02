@@ -11,6 +11,21 @@ import generateAvatar from '../../utils/nameAvatarGenerator';
 import theme from '../../MUI_theme';
 import uuidv4 from 'uuid/v4';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    height: '40%',
+    overflow: 'scroll',
+    backgroundColor: ({palette}) => palette.light.lighterBlue,
+    padding: theme.spacing(1),
+    borderRadius: theme.spacing(0, 0, 1, 1)
+  },
+  playerCard: {
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: '5px',
+  }
+}));
+
 function WorldChatPlayers(props) {
   const classes = useStyles(theme);
   const { players } = props;
