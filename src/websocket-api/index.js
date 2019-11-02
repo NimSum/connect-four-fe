@@ -83,3 +83,6 @@ export function placePlayerChip(xCoordinate) {
   socket.emit('place player chip', xCoordinate);
 };
 
+export function sendInGameMessage(payload) {
+  socket.emit('send in game message', payload);
+};
