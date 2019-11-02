@@ -44,6 +44,11 @@ function Splash() {
       };
     };
   }, [setCurrChip, currChip, grid]);
+
+  useEffect(() => {
+    const timout = setInterval(placeRandomChip, 1300);
+    return () => clearInterval(timout);
+  }, [placeRandomChip])
   return (
     <Box className={classes.root}>
       <Box boxShadow={3} className={classes.gridContainer}>
