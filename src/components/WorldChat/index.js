@@ -10,13 +10,13 @@ import ChatBox from '../ChatBox';
 
 
 function WorldChat(props) {
-  const [ newMessage, setNewMessage ] = useState([]);
-
-  const joinChat = () => {
-    const user = { player_name: Date.now() };
-    joinWorldChat(user);
-    getWorldChatPlayers();
-  };
+  const classes = useStyles(theme);
+  const [isChatActive, setChatActive] = useState(true);
+  const {
+    me,
+    messages,
+  } = props;
+  const { player_name, win_streak, _id, wins, losses } = me;
 
   const leaveChat = () => {
     leaveWorldChat();
