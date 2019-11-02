@@ -10,3 +10,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import generateAvatar from '../../utils/nameAvatarGenerator';
 import theme from '../../MUI_theme';
 import uuidv4 from 'uuid/v4';
+
+function WorldChatPlayers(props) {
+const mapStateToProps = ({ worldChat }) => ({
+  players: worldChat.players,
+})
+
+export default connect(mapStateToProps)(WorldChatPlayers);
