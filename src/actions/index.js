@@ -1,3 +1,4 @@
+/// GLOBAL CHAT ACTIIONS
 export const updateGlobalPlayers = player => ({
   type: 'UPDATE_GLOBAL_PLAYERS',
   player
@@ -13,9 +14,9 @@ export const updateGlobalMessages = message => ({
   message
 });
 
-export const updateGridSlots = data => ({
-  type: 'UPDATE_GAME',
-  data
+/// APPLICATION ACTION
+export const logoutUser = () => ({
+  type: 'LOGOUT_USER'
 })
 
 export const saveCurrentPlayer = player => ({
