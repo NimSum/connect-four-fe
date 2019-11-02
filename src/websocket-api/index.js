@@ -74,3 +74,8 @@ export function listenToActiveGame() {
 export function unsubscribeToActiveGame() {
   socket.removeListener('active game update')
 } 
+
+export function setPlayerReady(data) {
+  socket.emit('set player ready', data);
+};
+
