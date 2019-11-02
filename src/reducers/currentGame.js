@@ -52,6 +52,11 @@ const currentGame = (state = initialState, action) => {
         prevSlot: state.prevSlot,
         winner: null
       };
+    case 'UPDATE_ACTIVE_GAME_MSGS':
+      return { 
+        ...state, 
+        messages: [...state.messages, action.data] 
+      };
     default:
       return state;
   }
