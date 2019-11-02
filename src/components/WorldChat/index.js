@@ -30,14 +30,9 @@ function WorldChat(props) {
     setChatActive(!isChatActive);
   };
   
-  useEffect(() => joinChat(), []);
-
-  const generateChatElements = () => props.messages.map(({ message, player_name }) => <div>
-    <h4>{ player_name }: </h4>
-    <p>{ message }</p>
-  </div>);
-
-  const generateAvailablePlayers = () => props.players.map(({ player_name }) => <h4>{ player_name }: </h4>);
+  const handleSendMessage = (message) => {
+    sendWorldMessage(message);
+  };
 
   useEffect(() => {
     joinWorldChat({player_name, win_streak, _id, wins, losses });
