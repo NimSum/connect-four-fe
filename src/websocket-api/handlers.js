@@ -42,7 +42,21 @@ export function handleGameRoomUpdate(update) {
   }
 }
   
-  store.dispatch(updateGridSlots({currentPlayer, grid}));
+
+
+//// ACTIVE GAME
+export function handleActiveGameUpdate(data) {
+  const {type} = data;
+
+  if (type === 'message' || type === 'notification') {
+    store.dispatch(updateActiveGameMsgs(data));
+  } else if (type === 'inactiveUpdate') {
+    store.dispatch(updateInactiveGame(data));
+  } else if (type === 'activeUpdate') {
+    store.dispatch(updateActiveGame(data));
+  } else if (type === 'gameOver') {
+    store.dispatch(gameOver(data));
+  }
 };
 
 export function handleRegisterClient() {
