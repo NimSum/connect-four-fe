@@ -15,6 +15,34 @@ import theme from '../../MUI_theme';
 import PlayerDrawer from '../PlayerDrawer';
 import Splash from '../Splash';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    margin: 0,
+    padding: 0,
+    background: ({palette}) => palette.dark.darkGray,
+    [theme.breakpoints.up('lg')]: {
+      paddingRight: '230px'
+    },
+  },
+  homePgContainer: {
+    maxWidth: '1400px',
+    margin: 'auto',
+  },
+  homePgItem: {
+    width: '50%',
+    margin: '0',
+    [theme.breakpoints.down('sm')]: {
+      minWidth: '100vw',
+    },
+  },
+  loginPageContainer: {
+    display: 'flex',
+    width: '100vw',
+    flexDirection: 'column',
+    position: 'relative',
+  }
+}));
+
 function App(props) {
   const classes = useStyles(theme);
   const [isDrawerOpen, openDrawer] = useState(false);
