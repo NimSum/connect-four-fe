@@ -21,6 +21,14 @@ function WorldChat(props) {
   const leaveChat = () => {
     leaveWorldChat();
   }
+  const handleChatToggle = () => {
+    if (isChatActive) {
+      leaveChat();
+    } else {
+      joinWorldChat({player_name, win_streak, _id, wins, losses });
+    }
+    setChatActive(!isChatActive);
+  };
   
   useEffect(() => joinChat(), []);
 
