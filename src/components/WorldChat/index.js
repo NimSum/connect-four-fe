@@ -39,6 +39,10 @@ function WorldChat(props) {
 
   const generateAvailablePlayers = () => props.players.map(({ player_name }) => <h4>{ player_name }: </h4>);
 
+  useEffect(() => {
+    joinWorldChat({player_name, win_streak, _id, wins, losses });
+    getWorldChatPlayers();
+  }, [player_name, win_streak, _id, wins, losses]);
   
   return (
     <Box className={classes.container}>
