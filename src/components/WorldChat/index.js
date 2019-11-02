@@ -41,20 +41,20 @@ function WorldChat(props) {
 
   
   return (
-    <div>
-      <button onClick={() => {
-        sendWorldMessage(newMessage);
-      }}> SEND </button>
-      <input type='text' onChange={(e) => setNewMessage(e.target.value)} />
-      <button onClick={() => {
-        leaveChat();
-      }}> LEAVE WORLD CHAT </button>
-
-      { generateChatElements() }
-
-      <h3>Available Players</h3>
-      { generateAvailablePlayers() }
-    </div>
+    <Box className={classes.container}>
+      <Switch
+        checked={isChatActive}
+        onChange={handleChatToggle}
+        className={classes.chatToggle}
+        value="checkedB"
+        color="primary"
+        inputProps={{ 'aria-label': 'Join/leave world chat' }}
+      />
+      <Box className={classes.chatBox}>
+        < ChatBox messages={messages} sendMessage={handleSendMessage}title={'World Chat:'} />
+      </Box>
+      <WorldChatPlayers />
+    </Box>
   )
 };
 
