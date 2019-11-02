@@ -24,6 +24,9 @@ const handlers = {
         "Authorization": `Bearer ${token}`
       }
     });
+  },
+  anonymousLogin: function(player) {
+    return this.noTokenPost(this.routes.anonLogin, player)
   }
 };
 
