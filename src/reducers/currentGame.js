@@ -75,6 +75,50 @@ const currentGame = (state = initialState, action) => {
         prevSlot: initialState.prevSlot,
         winner: null
       };
+    case 'GAME_OVER':
+      return {
+        ...state,
+        winner: action.data.winner
+      };
+    case 'RESET_GRID':
+      return { 
+        ...state,
+        gridX: [     
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0]
+        ]
+      };
+    case 'RESET_PLAYER_READY':
+      return { 
+        ...state, 
+        players: state.players.map(p => {
+          p.isReady = false;
+          return p;
+        })
+      };
+    case 'LEAVE_ACTIVE_GAME' || 'LOGOUT_USER':
+      return {
+        gridX: [     
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0]
+        ],
+        prevSlot: [0, 0, 0],
+        currentPlayer: null,
+        status: '',
+        messages: [],
+        players: [null, null],
+        winner: null
+      };
     default:
       return state;
   }
