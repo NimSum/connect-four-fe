@@ -49,9 +49,16 @@ function App(props) {
       <Route 
         exact path='/home'
         render={(() => {
+          if (!props.player.token) return <Redirect to='/'/>;
           return (
-            <div>
-            </div>)
+            <Grid className={classes.homePgContainer} container wrap='wrap-reverse'>
+              <Grid item xs={6} className={classes.homePgItem}>
+                <WorldChat />
+              </Grid>
+              <Grid item xs={6} className={classes.homePgItem}>
+                <GameRooms />
+              </Grid>
+            </Grid>)
         })}
       />
       <Route 
