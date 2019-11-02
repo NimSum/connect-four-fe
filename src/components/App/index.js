@@ -3,6 +3,26 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function App(props) {
+  const tokenLogin = async () => {
+    const token = JSON.parse(localStorage.getItem('connect_four_token')) || false;
+
+    if (token) {
+      try {
+        const player = await request('tokenLogin', token);
+        if (player.ok) registerPlayer(await player.json());
+        else throw await player.json();
+      } catch(err) {
+        setError(err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    tokenLogin();
+    return () => removeClient();
+  }, [])
+
+
   return (
     <div className="App">
       <header className="App-header">
