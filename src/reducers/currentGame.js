@@ -57,6 +57,24 @@ const currentGame = (state = initialState, action) => {
         ...state, 
         messages: [...state.messages, action.data] 
       };
+    case 'REMATCH_GAME_RESET':
+      return { 
+        gridX: [     
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0], 
+          [0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: initialState.currentPlayer, 
+        messages: state.messages, 
+        status: 'full', 
+        players: state.players,
+        prevSlot: initialState.prevSlot,
+        winner: null
+      };
     default:
       return state;
   }
