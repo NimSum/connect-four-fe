@@ -144,6 +144,16 @@ function PlayerForms(props) {
     }
   };
   
+  const generateErrors = () => errors.map(err => {
+    return (
+      <Grow in={!!errors.length} timeout={400}>
+        <Typography className={classes.error}>
+          {err.error}
+        </Typography>
+      </Grow>
+    )
+  });
+
   return (
     <div className={classes.root}>
     </div>
