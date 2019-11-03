@@ -17,6 +17,7 @@ function PlayerForms(props) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
+  const handleLoginForm = ({ target }) => setLoginValues({ ...loginValues, [target.name]: target.value });
   return (
     <div className={classes.root}>
     </div>
