@@ -100,6 +100,33 @@ function PlayerForms(props) {
       setErrors([err]);
     }
   };
+
+  const loginAnonymously = async (e) => {
+    e.preventDefault();
+    const { player_name } = signUpValues;
+    setLoading(true);
+    try {
+      const res = await request('anonymousLogin', {player_name});
+      if (!res.ok) {
+        setLoading(false);
+        throw await res.json();
+      } else {
+        const token = await res.json();
+        const anon = {
+          player: {
+            player_name, 
+          },
+          type: 'anonymous', 
+          ...token
+        };
+        props.registerPlayer(anon);
+        setLoading(false);
+      };
+    } catch(error) {
+      setErrors([error]);
+    }
+  };
+
   return (
     <div className={classes.root}>
     </div>
