@@ -175,6 +175,38 @@ function PlayerForms(props) {
       </Button>}
     </div>
   );
+
+  const anonForm = (
+    <form autoComplete="off" onSubmit={loginAnonymously}>
+      <Box className={classes.inputsContainer}>
+        <Typography variant='h6'>
+          Anonymous Login
+        </Typography>
+        <TextField
+          id="player_name"
+          label="Player Name"
+          className={classes.textField}
+          type="text"
+          name="player_name"
+          value={signUpValues.player_name || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 15}}
+        />
+        <h4>{isLoading && loadingIcon }</h4>
+        {!!errors.length && generateErrors()}
+        <Button color="primary" type="submit" variant="contained">
+          Login
+        </Button>
+        <Button color="primary" size="small" onClick={() => {
+          setShowSignUpForm(false)
+          setShowAnonLoginForm(false)}}>
+          Already a user? Click me
+        </Button>
+      </Box>
+    </form> 
+  )
   return (
     <div className={classes.root}>
     </div>
