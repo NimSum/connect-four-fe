@@ -154,6 +154,27 @@ function PlayerForms(props) {
     )
   });
 
+  const optionButtons = (
+    <div className={classes.inputsContainer}>
+      <Button 
+        color="secondary" 
+        variant="contained" 
+        className={classes.optionButton}
+        onClick={() => {
+          setShowSignUpForm(true);
+          setShowAnonLoginForm(false);
+        }}>
+        Create Account
+      </Button>
+      {!showAnonLoginForm && <Button 
+        color="secondary" 
+        variant="contained" 
+        className={classes.optionButton}
+        onClick={() => setShowAnonLoginForm(true)}>
+        Login Anonymously
+      </Button>}
+    </div>
+  );
   return (
     <div className={classes.root}>
     </div>
