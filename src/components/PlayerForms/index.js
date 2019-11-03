@@ -335,6 +335,12 @@ function PlayerForms(props) {
 
   return (
     <div className={classes.root}>
+      <Box onFocus={() => setErrors([])}>
+        { !showSignUpForm && !showAnonLoginForm && loginForm }
+        { showSignUpForm && registerForm }
+        { showAnonLoginForm &&  anonForm }
+        { !showSignUpForm && optionButtons }
+      </Box>
     </div>
   );
 };
