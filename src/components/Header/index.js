@@ -1,13 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { RBButton } from '../Buttons';
-import { leaveWorldChat } from '../../websocket-api';
-import { saveCurrentPlayer } from '../../actions';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../MUI_theme';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
