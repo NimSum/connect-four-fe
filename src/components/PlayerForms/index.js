@@ -18,6 +18,18 @@ function PlayerForms(props) {
   const [isLoading, setLoading] = useState(false);
 
   const handleLoginForm = ({ target }) => setLoginValues({ ...loginValues, [target.name]: target.value });
+  const handleSignUpForm = ({ target }) => {
+    const withSpace = target.value.replace(/[^a-zA-Z\s0-9]/g, "");
+    const withoutSpace = withSpace.replace(/[\s]/g, "");
+
+    if (target.name === 'secret_one' || target.name === 'secret_two') {
+      setSignUpValues({ ...signUpValues, [target.name]: withSpace })
+    } else if (target.name === 'email') {
+      setSignUpValues({ ...signUpValues, [target.name]: target.value })
+    } else {
+      setSignUpValues({ ...signUpValues, [target.name]: withoutSpace })
+    }
+  };
   return (
     <div className={classes.root}>
     </div>
