@@ -8,6 +8,42 @@ import Typography from '@material-ui/core/Typography';
 import Grow from '@material-ui/core/Grow';
 import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    position: 'fixed',
+    top: '5%',
+    right: '0',
+    margin: theme.spacing(2),
+    flexDirection: 'row-reverse'
+  },
+  inputsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    minWidth: '300px',
+    padding: theme.spacing(2),
+    position: 'relative',
+    background: 'rgba(255, 255, 255, .9)',
+    boxShadow: theme.shadows[5],
+  },
+  loadingIcon: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+  },
+  optionButton: {
+    margin: '10px 0'
+  },
+  error: {
+    color: 'red',
+    margin: '5px auto'
+  }
+}));
+
 function PlayerForms(props) {
   const classes = useStyles();
   const [loginValues, setLoginValues] = useState({});
