@@ -62,6 +62,12 @@ function PlayerForms(props) {
       return true;
     }
   };
+
+  const loadingIcon = (
+    <div className={classes.loadingIcon}>
+      <CircularProgress  />
+    </div>
+  );
   return (
     <div className={classes.root}>
     </div>
