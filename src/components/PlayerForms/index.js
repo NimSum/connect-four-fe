@@ -127,6 +127,23 @@ function PlayerForms(props) {
     }
   };
 
+  const loginUser = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const player = await request('login', loginValues);
+      if (!player.ok) {
+        setLoading(false);
+        throw await player.json();
+      } else {
+        props.registerPlayer(await player.json())
+        setLoading(false);
+      };
+    } catch(err) {
+      setErrors([err]);
+    }
+  };
+  
   return (
     <div className={classes.root}>
     </div>
