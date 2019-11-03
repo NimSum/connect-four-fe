@@ -207,6 +207,94 @@ function PlayerForms(props) {
       </Box>
     </form> 
   )
+
+  const registerForm = (
+    <form autoComplete="off" onSubmit={signUpUser}>
+      <Box className={classes.inputsContainer}>
+        <TextField
+          id="outlined-email"
+          label="Email"
+          className={classes.textField}
+          type="email"
+          name="email"
+          value={signUpValues.email || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 35}}
+        />
+        <TextField
+          id="outlined-player-name"
+          label="Player Name"
+          className={classes.textField}
+          type="text"
+          name="player_name"
+          value={signUpValues.player_name || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 20}}
+        />
+        <TextField
+          id="outlined-password"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          name="password"
+          value={signUpValues.password || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 25}}
+        />
+        <TextField
+          id="outlined-confirm-password"
+          label="Confirm Password"
+          className={classes.textField}
+          type="password"
+          name="confirm_password"
+          value={signUpValues.confirm_password || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 25}}
+        />   
+        <TextField
+          id="outlined-secret-one"
+          label="Secret Phrase One (For: Password Reset)"
+          className={classes.textField}
+          type="text"
+          name="secret_one"
+          value={signUpValues.secret_one || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 40}}
+        />   
+        <TextField
+          id="outlined-secret-two"
+          label="Secret Phrase Two (For: Password Reset)"
+          className={classes.textField}
+          type="text"
+          name="secret_two"
+          value={signUpValues.secret_two || ''}
+          onChange={handleSignUpForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 40}}
+        />           
+        <h4>{isLoading && loadingIcon }</h4>
+        {!!errors.length && generateErrors()}
+        <Button color="primary" type="submit" variant="contained">
+          Create
+        </Button>
+        <Button color="primary" size="small" onClick={() => setShowSignUpForm(false)}>
+          Already a user? Click me
+        </Button>
+      </Box>
+    </form> 
+  );
+
   return (
     <div className={classes.root}>
     </div>
