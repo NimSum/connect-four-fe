@@ -295,6 +295,44 @@ function PlayerForms(props) {
     </form> 
   );
 
+  const loginForm = (
+    <form autoComplete="off" onSubmit={loginUser}>
+      <Box className={classes.inputsContainer}>
+        <TextField
+          error={!!errors.length}
+          id="outlined-email"
+          label="Email"
+          className={classes.textField}
+          type="email"
+          name="email"
+          value={loginValues.email || ''}
+          onChange={handleLoginForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 35}}
+        />
+        <TextField
+          error={!!errors.length}
+          id="outlined-password"
+          label="Password"
+          className={classes.textField}
+          name="password"
+          type="password"
+          value={loginValues.password || ''}
+          onChange={handleLoginForm}
+          margin="normal"
+          variant="outlined"
+          inputProps={{maxLength: 25}}
+        />
+        {isLoading && loadingIcon }
+        {!!errors.length && generateErrors()}
+        <Button color="primary" type="submit" variant="contained">
+          Log In
+        </Button>
+      </Box>
+    </form>
+  );
+
   return (
     <div className={classes.root}>
     </div>
