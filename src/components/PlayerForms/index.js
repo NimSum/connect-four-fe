@@ -30,6 +30,38 @@ function PlayerForms(props) {
       setSignUpValues({ ...signUpValues, [target.name]: withoutSpace })
     }
   };
+
+  const verifySignUpParams = () => {
+    const errors = [];
+    const reqParams = [
+      'email',
+      'player_name', 
+      'password',
+      'confirm_password',
+      'secret_one', 
+      'secret_two',
+    ];
+
+    for (let param of reqParams) {
+      const readable = param.split('_').join(' ');
+      if (!signUpValues[param]) {
+        errors.push({ type: 'input', error: `${readable.toUpperCase()} is required.`});
+      } else if (signUpValues[param].length < 3) {
+        errors.push({ type: 'input', error: `${readable.toUpperCase()} must be at least 3 characters or longer.`});
+      } else if (param === 'password') {
+        if (signUpValues.password !== signUpValues.confirm_password) {
+          errors.push({ type: 'input', error: 'Passwords must match.'})
+        }
+      }
+    }
+
+    if (errors.length > 0) {
+      setErrors(errors);
+      return false;
+    } else {
+      return true;
+    }
+  };
   return (
     <div className={classes.root}>
     </div>
