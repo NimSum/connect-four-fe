@@ -68,6 +68,38 @@ function PlayerForms(props) {
       <CircularProgress  />
     </div>
   );
+
+  const signUpUser = async (e) => {
+    e.preventDefault();
+    try {
+      if (verifySignUpParams()) {
+        const {
+          email,
+          password,
+          player_name,
+          secret_one,
+          secret_two,
+        } = signUpValues;
+        const res = await request('signupUser', {
+          email,
+          password,
+          player_name,
+          secret_one,
+          secret_two,
+        });
+        if (!res.ok) {
+          setLoading(false);
+          throw await res.json();
+        } else {
+          const player = await res.json();
+          props.registerPlayer(player);
+          setLoading(false);
+        };
+      }
+    } catch(err) {
+      setErrors([err]);
+    }
+  };
   return (
     <div className={classes.root}>
     </div>
