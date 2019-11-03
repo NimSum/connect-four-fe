@@ -7,18 +7,28 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: '100vw'
   },
   appBar: {
-    background: (props) => props.cyan.main,
+    background: ({palette}) => palette.dark.darkBlueGray,
+    display: 'flex',
+    justifyContent: 'center',
   },
   title: {
     flexGrow: 1,
-    color: (props) => props.deepPurple.light
+    color: ({palette}) => palette.light.lighterGray
   },
-});
+  menuButton: {
+    marginRight: theme.spacing(2),
+    color: theme.palette.primary.contrastText,
+    [theme.breakpoints.up('lg')]: {
+      display: 'none',
+  },
+  }
+}));
 
 function Header(props) {
   const classes = useStyles(theme.palette);
