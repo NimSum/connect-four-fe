@@ -27,6 +27,32 @@ function ChatBox(props) {
       scrollToBottom();
     }
   }, [props.messages, autoScroll])
+
+  const messageCard = (message, player_name = false, type) => (
+    <ListItem key={uuidv4()} alignItems="flex-start" className={classes.message}>
+        <ListItemText
+          className={classes.message}
+          primary={
+            <Typography
+              component="span"
+              variant="body2"
+              className={classes.userName}
+              color="textSecondary"
+            >
+              {(type === 'message') && `${player_name}: `}
+            </Typography>
+          }
+          secondary={
+            <Typography
+              component="span"
+              variant="body2"
+            >
+              {message}
+            </Typography>
+          }
+        />
+    </ListItem>
+  );
   return (
     <Box boxShadow={3} className={classes.root}>
     </Box>
