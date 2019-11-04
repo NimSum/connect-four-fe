@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -55,17 +55,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) { 
-  const [isInRoom, setIsInRoom] = useState(false);
+function Rooms({isInRoom, allGameRooms, joinHandler, currPlayerName}) { 
   const [roomPass, setRoomPass] = useState('');
   const [showPassInput, setShowPassInput] = useState(false);
   const classes = useStyles({...theme, isInRoom});
-
-  useEffect(() => {
-    roomStatus === 'waiting' || roomStatus === 'full'
-    ? setIsInRoom(true)
-    : setIsInRoom(false);
-  }, [roomStatus, setIsInRoom])
 
   const passInput = (
     <Input
@@ -153,10 +146,9 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
   )
 }
 
-const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
+const mapStateToProps = ({ allGameRooms, currentPlayer }) => ({
   allGameRooms,
   currPlayerName: currentPlayer.player.player_name,
-  roomStatus: currentGame.status
 })
 
 export default connect(mapStateToProps)(Rooms);
