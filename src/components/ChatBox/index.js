@@ -13,6 +13,10 @@ import uuidv4 from 'uuid/v4';
 
 function ChatBox(props) {
   const classes = useStyles(theme);
+  const { messages, sendMessage, title } = props;
+  const messagesEndRef = useRef(null);
+  const [newMessage, setNewMessage] = useState('');  
+  const [autoScroll, switchAutoScroll] = useState(false);
   return (
     <Box boxShadow={3} className={classes.root}>
     </Box>
