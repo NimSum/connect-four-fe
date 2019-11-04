@@ -190,6 +190,17 @@ function GameGrid(props) {
 
   return (
     <div className={classes.root}>
+      {showWaitRoom && <div>
+        <Grow in={showWaitRoom}>
+          <Box className={classes.reMatchBox}>
+            <WaitingRoom />
+          </Box>
+        </Grow>
+      </div>}
+      {turnIndicator()}
+      <Box boxShadow={3} className={classes.gridContainer} onMouseLeave={() => setCoordinate(null)}>
+        {generateGrid()}
+      </Box>
     </div>
   )
 };
