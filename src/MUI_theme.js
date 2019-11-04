@@ -25,8 +25,8 @@ const theme = createMuiTheme({
       orange: orange['A400'],
     },
     background: {
-    blue: {
-      dark: blue['A700'],
+      blue: {
+        dark: blue['A700'],
         light: lightBlue['A700'],
         lighter: lightBlue['100'],
         cyan: cyan['A400']
@@ -34,8 +34,8 @@ const theme = createMuiTheme({
       green: {
         lime: lime['A700'],
         light: lightGreen['A700']
-    },
-    red: {
+      },
+      red: {
         red: red['A400'],
       }
     },

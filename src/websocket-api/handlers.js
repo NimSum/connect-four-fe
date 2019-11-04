@@ -41,7 +41,7 @@ export function handleGameRoomUpdate(update) {
     store.dispatch(updateGameRoom(update))
   }
 }
-  
+
 
 
 //// ACTIVE GAME
@@ -59,10 +59,6 @@ export function handleActiveGameUpdate(data) {
   }
 };
 
-export function handleRegisterClient() {
-  const player = store.getState('currentGame');
-  console.log(player)
-};
 
 //// OTHER
 export function handleDisconnect() {

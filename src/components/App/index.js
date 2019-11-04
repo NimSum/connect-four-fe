@@ -86,41 +86,41 @@ function App(props) {
       <Header toggleDrawer={handleDrawerToggle} />
       { props.player.token && <PlayerDrawer isVisible={isDrawerOpen} toggleDrawer={handleDrawerToggle}/>}
       <Switch>
-      <Route 
-        exact path='/'
-        render={(() => {
-          if (props.player.token) return <Redirect to='/home'/>;
-          return (
-            <div className={classes.loginPageContainer}>
-              <Splash />
-              <PlayerForms registerPlayer={registerPlayer} />
-            </div>)
-        })}
-      />
-      <Route 
-        exact path='/home'
-        render={(() => {
-          if (!props.player.token) return <Redirect to='/'/>;
-          return (
-            <Grid className={classes.homePgContainer} container wrap='wrap-reverse'>
-              <Grid item xs={6} className={classes.homePgItem}>
-                <WorldChat />
-              </Grid>
-              <Grid item xs={6} className={classes.homePgItem}>
-                <GameRooms />
-              </Grid>
-            </Grid>)
-        })}
-      />
-      <Route 
-        exact path='/active_game'
-        render={(() => {
-          return (
-           <Connect4Grid />
-          )
-          })
-        }
-      />
+        <Route 
+          exact path='/'
+          render={(() => {
+            if (props.player.token) return <Redirect to='/home'/>;
+            return (
+              <div className={classes.loginPageContainer}>
+                <Splash />
+                <PlayerForms registerPlayer={registerPlayer} />
+              </div>)
+          })}
+        />
+        <Route 
+          exact path='/home'
+          render={(() => {
+            if (!props.player.token) return <Redirect to='/'/>;
+            return (
+              <Grid className={classes.homePgContainer} container wrap='wrap-reverse'>
+                <Grid item xs={6} className={classes.homePgItem}>
+                  <WorldChat />
+                </Grid>
+                <Grid item xs={6} className={classes.homePgItem}>
+                  <GameRooms />
+                </Grid>
+              </Grid>)
+          })}
+        />
+        <Route 
+          exact path='/active_game'
+          render={(() => {
+            return (
+            <Connect4Grid />
+            )
+            })
+          }
+        />
         <Route component={FourOhFourPage} />
       </Switch>      
     </div>

@@ -9,7 +9,7 @@ const worldChat = (state = { players: [], messages: [] } , action) => {
       if (action.player.update_type === 'delete') {
         const idxFound = players.findIndex(p => p.player_name === player.player_name);
         players.splice(idxFound, 1);
-        return { messages, players }
+        return { messages, players: [...players] }
       } else {
         return { messages, players: [...players, player] };
       }

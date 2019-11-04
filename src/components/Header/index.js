@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     [theme.breakpoints.up('lg')]: {
       display: 'none',
-  },
+    },
   }
 }));
 

@@ -58,16 +58,16 @@ function WorldChat(props) {
     }
     setChatActive(!isChatActive);
   };
-  
+
   const handleSendMessage = (message) => {
     sendWorldMessage(message);
   };
-
+  
   useEffect(() => {
     joinWorldChat({player_name, win_streak, _id, wins, losses });
     getWorldChatPlayers();
   }, [player_name, win_streak, _id, wins, losses]);
-  
+
   return (
     <Box className={classes.container}>
       <Switch
