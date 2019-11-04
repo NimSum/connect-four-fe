@@ -73,6 +73,20 @@ const useStyles = makeStyles(theme => ({
     background: ({palette}) => palette.light.lightBlue,
     flexDirection: 'column',
   },
+  playerColor: {
+    border: ({palette}) => `6px solid ${palette.dark.darkerBlueGray}`
+  },
+  oppColor: {
+    cursor: 'not-allowed',
+    opacity: '.1',
+    border: ({palette}) => `6px solid ${palette.light.lightGray}`
+  },
+  opponentReadyBtn: {
+    padding: '5px 10px',
+    borderRadius: '10px',
+  }
+}));
+
 function WaitingRoom(props) {
   const hues = Object.values(colors.palette.chips);
   const [isReady, setIsReady] = useState(false);
