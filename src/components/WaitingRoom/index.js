@@ -15,6 +15,15 @@ import { unsubscribeToActiveGame, leaveGame } from '../../websocket-api';
 import { leaveActiveGame } from '../../actions';
 
 function WaitingRoom(props) {
+  const hues = Object.values(colors.palette.chips);
+  const [isReady, setIsReady] = useState(false);
+  const [mainPlayer, setMainPlayer] = useState({});
+  const [opponent, setOpponent] = useState({});
+  const [playerColor, setPlayerColor] = useState('');
+  const [oppColor, setOppColor] = useState('');
+  const { players, currPlayerName, resetActiveGame } = props;
+  const prevPlayers = useRef(props.players);
+  const classes = useStyles({...colors, oppColor, playerColor});
   return (
     <Grid className={classes.root} container wrap='wrap'>
     </Grid>
