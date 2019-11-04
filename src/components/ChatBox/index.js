@@ -53,6 +53,18 @@ function ChatBox(props) {
         />
     </ListItem>
   );
+
+  const generateMessageCards = () => messages
+    .map(({ message, player_name, type }) => messageCard(message, player_name, type));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newMessage.length > 0) {
+      sendMessage(newMessage);
+      setNewMessage('');
+    }
+  }
+  
   return (
     <Box boxShadow={3} className={classes.root}>
     </Box>
