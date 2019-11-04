@@ -11,6 +11,48 @@ import Box from '@material-ui/core/Box';
 import theme from '../../MUI_theme';
 import uuidv4 from 'uuid/v4';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    borderRadius: '10px',
+    marginBottom: '55px',
+    overflow: 'scroll',
+    backgroundColor: theme.palette.background.paper
+  },
+  userName: {
+    display: 'inline',
+  },
+  newMessageForm: {
+    display: 'flex',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%'
+  },
+  textField: {
+    margin: theme.spacing(1, 0),
+    width: '90%',
+    marginRight: 0,
+    background: theme.palette.background.paper,
+  },
+  submit: {
+    margin: theme.spacing(1, 0),
+    marginLeft: 0,
+    background: theme.palette.primary.main,
+    color: theme.palette.common.white,
+    borderBottomLeftRadius: 0
+  },
+  title: {
+    width: '100%',
+    padding: theme.spacing(1, 2),
+    background: ({palette}) => palette.light.lighterBlue,
+  },
+  message: {
+    width: '95%',
+    overflowWrap: 'break-word',
+    color: ({palette}) => palette.dark.darkerBlueGray
+  }
+}));
+
 function ChatBox(props) {
   const classes = useStyles(theme);
   const { messages, sendMessage, title } = props;
