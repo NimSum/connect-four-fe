@@ -91,6 +91,17 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
       );
     }) 
   }
+
+  const noRoomsMessage = (
+    <>
+      <Typography className={classes.fullMessage} variant="h5">
+        No Rooms Available
+      </Typography>
+      <Typography className={classes.fullMessage} variant="subtitle1">
+        Click "NEW ROOM" to create a new one
+      </Typography>
+    </>
+  );
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
   allGameRooms,
   currPlayerName: currentPlayer.player.player_name,
