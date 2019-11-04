@@ -77,6 +77,31 @@ function ChatBox(props) {
         {generateMessageCards()}
         <div ref={messagesEndRef}/>
       </List>
+      <form 
+        onFocus={() => switchAutoScroll(true)} 
+        onBlur={() => switchAutoScroll(false)}
+        autoComplete="off" 
+        className={classes.newMessageForm} 
+        onSubmit={handleSubmit}>
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Message"
+          rowsMax="4"
+          value={newMessage}
+          onChange={({target}) => setNewMessage(target.value)}
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+        />
+        <Button
+          variant="contained"
+          onClick={handleSubmit}
+          className={classes.submit}
+          endIcon={<Send/>}
+        >
+          Send
+        </Button>
+      </form> 
     </Box>
   );
 }
