@@ -67,6 +67,16 @@ function ChatBox(props) {
   
   return (
     <Box boxShadow={3} className={classes.root}>
+      <Typography
+        variant="h6"
+        className={classes.title}
+      >
+        {title}
+      </Typography>
+      <List>
+        {generateMessageCards()}
+        <div ref={messagesEndRef}/>
+      </List>
     </Box>
   );
 }
