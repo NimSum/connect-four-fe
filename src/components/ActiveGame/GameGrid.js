@@ -111,6 +111,20 @@ function GameGrid(props) {
           column.map((gridSlot, i) => {
             const isBottom = bottomIdx === i && isHovered;
             const isNew = prevSlot.join('') === [idx, i, gridSlot].join('');
+
+            const bottomHoveredSlot = (
+              <Fade in={isBottom}>
+                <Box 
+                  onClick={handleChipPlacement} 
+                  className={`${classes.slot} ${handleSlotStyle(gridSlot, isHovered, isBottom )}`} 
+                  {...slotProps}
+                >
+                <IconButton className={classes.addChipBtn}>
+                  <AddIcon className={classes.addChipIcon}/>
+                </IconButton>
+                </Box>
+              </Fade>
+            );
             const defaultSlot = (
               <Box 
                 key={`col${idx}row${i}player${gridSlot}`} 
