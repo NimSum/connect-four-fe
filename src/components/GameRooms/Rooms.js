@@ -20,6 +20,11 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
   const [showPassInput, setShowPassInput] = useState(false);
   const classes = useStyles({...theme, isInRoom});
 
+  useEffect(() => {
+    roomStatus === 'waiting' || roomStatus === 'full'
+    ? setIsInRoom(true)
+    : setIsInRoom(false);
+  }, [roomStatus, setIsInRoom])
 
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
   allGameRooms,
