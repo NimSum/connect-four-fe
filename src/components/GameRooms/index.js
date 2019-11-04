@@ -46,6 +46,12 @@ function GameRooms(props) {
   const handleShowForm = (bool) => {
     showForm(bool);
   };
+  
+  const handleLeave = () => {
+    unsubscribeToActiveGame();
+    leaveGame();
+    resetActiveGame();
+  };
   return (
     <div>
       
