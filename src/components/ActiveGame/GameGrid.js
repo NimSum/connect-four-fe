@@ -32,6 +32,16 @@ function GameGrid(props) {
   const mainWin = main.player_name === winner;
   const oppWin = opponent.player_name === winner;
   const prevState = useRef({winner, grid, players});
+
+  const classes = useStyles({
+    ...theme, 
+    main: main.chipColor, 
+    mainWin,
+    opp: opponent.chipColor,
+    oppWin,
+    isPlayerTurn,
+    isActive
+  });
   return (
     <div className={classes.root}>
     </div>
