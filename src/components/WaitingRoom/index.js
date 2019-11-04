@@ -60,6 +60,12 @@ const useStyles = makeStyles(theme => ({
     alignContent: 'center',
     margin: '10px'
   },
+  colorBoxTitle: {
+    textAlign: 'center',
+    color: ({palette}) => palette.light.lighterGray,
+    borderRadius: '5px 5px 0 0',
+    background: ({palette}) => palette.dark.darkBlueGray
+  },
   colorsBox: {
     borderRadius: '5px',
     boxShadow: theme.shadows[2],
