@@ -8,8 +8,7 @@ import {
   handleDisconnect
 } from './handlers';
 
-const socket = openSocket('http://localhost:3000');
-// const socket = openSocket('http://ec2-34-205-32-52.compute-1.amazonaws.com:3000');
+const socket = openSocket('http://ec2-34-205-32-52.compute-1.amazonaws.com:3000');
 
 //// AUTO WORLD CHAT 
 socket.on('world chat update', handleWorldChat);
