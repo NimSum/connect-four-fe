@@ -14,7 +14,10 @@ import theme from '../../MUI_theme';
 import Box from '@material-ui/core/Box';
 
 function GameRooms(props) {
+  const [formVisible, showForm] = useState(false);
+  const {currRoomStatus, resetActiveGame} = props;
   const [isInRoom, setIsInRoom] = useState(false);
+  const classes = useStyles({...theme, isInRoom});
   
   useEffect(() => {
     currRoomStatus === 'waiting' || currRoomStatus === 'full'
