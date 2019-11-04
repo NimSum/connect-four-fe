@@ -32,6 +32,7 @@ function GameGrid(props) {
   const mainWin = main.player_name === winner;
   const oppWin = opponent.player_name === winner;
   const prevState = useRef({winner, grid, players});
+  const [xCoordinate, setCoordinate] = useState(null);
 
   const classes = useStyles({
     ...theme, 
@@ -73,6 +74,10 @@ function GameGrid(props) {
     setShowWaitRoom,
     isActive
   ]);
+  const handleHovered = ({target}) => {
+    const colId = (target.id || target.parentElement.id).split(':');
+    setCoordinate(parseInt(colId[1]));
+  };
   return (
     <div className={classes.root}>
     </div>
