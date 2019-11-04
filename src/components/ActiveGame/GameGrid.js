@@ -175,6 +175,19 @@ function GameGrid(props) {
       </Box>
     )
   });
+
+  const turnIndicator = () => {
+    return (
+      <Box className={classes.turnIndicator}>
+        <Typography variant='h5'>
+            {!showWaitRoom && `${isPlayerTurn ? 'Your' : opponent.player_name + "'s"} Turn!`}
+            {mainWin && 'You Win!'}
+            {oppWin && `${opponent.player_name} Wins!`}
+        </Typography>
+      </Box>
+    );
+  };
+
   return (
     <div className={classes.root}>
     </div>
