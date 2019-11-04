@@ -54,6 +54,12 @@ const useStyles = makeStyles(theme => ({
       height: '12vw',
     }
   },
+  emptySlot: {
+    background: ({palette, oppWin, mainWin, isActive}) => 
+      oppWin || mainWin || !isActive 
+        ? palette.dark.midBlue 
+        : palette.light.lighterGray
+  },
 }));
 
 const slotProps = {
