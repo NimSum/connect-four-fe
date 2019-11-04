@@ -26,6 +26,19 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
     : setIsInRoom(false);
   }, [roomStatus, setIsInRoom])
 
+  const passInput = (
+    <Input
+      placeholder="Password"
+      className={classes.input}
+      value={roomPass}
+      onChange={(e) => setRoomPass(e.target.value)}
+      onBlur={() => setShowPassInput(false)}
+      autoFocus
+      inputProps={{
+        'aria-label': 'room password input',
+      }}
+    />
+  );
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
   allGameRooms,
   currPlayerName: currentPlayer.player.player_name,
