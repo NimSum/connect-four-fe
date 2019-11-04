@@ -14,6 +14,40 @@ import { Grow } from '@material-ui/core';
 import { unsubscribeToActiveGame, leaveGame } from '../../websocket-api';
 import { leaveActiveGame } from '../../actions';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: '700px',
+    marginBottom: '10px',
+    padding: theme.spacing(3, 2, 2, 2),
+    background: ({palette}) => palette.light.lighterBlue,
+    position: 'relative',
+    textAlign: 'center',
+    justifyContent: 'center',
+    borderRadius: '10px'
+  },
+  playerCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: '20px 0',
+    borderRadius: '20px',
+    margin: '10px auto',
+    boxShadow: theme.shadows[2],
+  },
+  colorsContainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+    margin: '10px'
+  },
+  colorsBox: {
+    borderRadius: '5px',
+    boxShadow: theme.shadows[2],
+    display: 'flex',
+    background: ({palette}) => palette.light.lightBlue,
+    flexDirection: 'column',
+  },
 function WaitingRoom(props) {
   const hues = Object.values(colors.palette.chips);
   const [isReady, setIsReady] = useState(false);
