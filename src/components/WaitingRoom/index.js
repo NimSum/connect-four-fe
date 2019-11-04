@@ -92,6 +92,13 @@ function WaitingRoom(props) {
     setPlayerReady(payload);
     setIsReady(!isReady);
   };
+
+  const generatePlayerCards = () => players.map(player => {
+    const { playerCard, mainCardBorder, oppCardBorder, isReady } = classes;
+    let p = player || {};
+    const ifMain = (p === mainPlayer);
+  })
+
   return (
     <Grid className={classes.root} container wrap='wrap'>
     </Grid>
