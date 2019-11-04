@@ -89,6 +89,10 @@ const useStyles = makeStyles(theme => ({
   addChipBtn: {
     color: ({isPlayerTurn}) => isPlayerTurn ? 'white' : 'darkGray',
   },
+  reMatchBox: {
+    margin: '10px auto',
+    maxWidth: '800px',
+  }
 }));
 
 const slotProps = {
