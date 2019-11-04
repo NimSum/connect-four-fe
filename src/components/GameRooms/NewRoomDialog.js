@@ -12,6 +12,14 @@ export default function NewRoomDialog({submitHandler, isVisible, showForm }) {
   const [formFields, setFormFields] = useState({roomName: '', roomPassword: ''});
 
   const handleForm = ({ target }) => setFormFields({ ...formFields, [target.name]: target.value });
+
+  const handleCreate = () => {
+    if (formFields.roomName.length > 2) {
+      submitHandler(formFields);
+      setFormFields({roomName: '', roomPassword: ''});
+    }
+  };
+
   return (
     <Dialog open={isVisible} onClose={() => showForm(false)} aria-labelledby="Create new room">
       <DialogTitle id="Create new room">Create New Room</DialogTitle>
