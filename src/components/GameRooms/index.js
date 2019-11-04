@@ -13,6 +13,35 @@ import WaitingRoom from '../WaitingRoom';
 import theme from '../../MUI_theme';
 import Box from '@material-ui/core/Box';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: '700px',
+    display: 'flex',
+    height: '100%',
+    margin: 'auto',
+    padding: theme.spacing(2),
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      height: ({isInRoom}) => isInRoom ? '100vh' : '51vh',
+    }
+  },
+  titleContainer: {
+    borderRadius: '5px 5px 0 0',
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: theme.spacing(1, 1, 1, 2),
+    background: ({palette}) => palette.light.lighterBlue
+  },
+  roomsContainer: {
+    borderRadius: '5px',
+    margin: 'auto',
+    height: '100%',
+    width: '100%',
+    background: ({palette}) => palette.background.blue.light
+  }
+}));
+
 function GameRooms(props) {
   const [formVisible, showForm] = useState(false);
   const {currRoomStatus, resetActiveGame} = props;
