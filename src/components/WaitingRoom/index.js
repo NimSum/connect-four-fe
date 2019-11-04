@@ -36,6 +36,22 @@ function WaitingRoom(props) {
     resetActiveGame();
   };
 
+
+  const generateChips = () => hues.map(hue => {
+    const isPlayer = hue === playerColor;
+    const isOpp = hue === oppColor;
+    return (
+      <Box 
+        onClick={() => handleColorSelect(hue)} 
+        boxShadow={3} 
+        key={hue} 
+        borderRadius="50%" 
+        bgcolor={hue} 
+        className={chipStyleSelector(isPlayer, isOpp)}>
+      </Box>
+    )
+  });
+
   useEffect(() => {
     if (players !== prevPlayers) {
       for (let player of players) {
