@@ -102,6 +102,16 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
       </Typography>
     </>
   );
+
+  return (
+    <List className={classes.cardsContainer}>
+      {!allGameRooms.length 
+        ? noRoomsMessage 
+        : generateGameRooms()}    
+    </List>
+  )
+}
+
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
   allGameRooms,
   currPlayerName: currentPlayer.player.player_name,
