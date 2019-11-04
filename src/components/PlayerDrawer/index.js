@@ -65,7 +65,7 @@ function PlayerDrawer(props) {
           </ListItemIcon>
           <ListItemText primary={"Stats"} />
         </ListItem>
-        <ListItem button key={"Achievements"} onClick={() => {}}>
+        <ListItem button key={"Achievements"} onClick={handleAchievements}>
           <ListItemIcon>
             <DoneIcon />
           </ListItemIcon>
@@ -77,13 +77,7 @@ function PlayerDrawer(props) {
           </ListItemIcon>
           <ListItemText primary={"Account"} />
         </ListItem>
-        <ListItem button key={"Messages"} onClick={() => {}}>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Messages"} />
-        </ListItem>
-        <ListItem button key={"Friends"} onClick={() => {}}>
+        <ListItem button key={"Friends"} onClick={handleFriends}>
           <ListItemIcon>
             <PeopleOutlineIcon />
           </ListItemIcon>
