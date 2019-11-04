@@ -36,6 +36,11 @@ function WaitingRoom(props) {
     resetActiveGame();
   };
 
+  const handleColorSelect = (color) => {
+    if (color !== oppColor) {
+      setPlayerColor(color);
+    }
+  };
 
   const generateChips = () => hues.map(hue => {
     const isPlayer = hue === playerColor;
