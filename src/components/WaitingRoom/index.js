@@ -35,6 +35,24 @@ const useStyles = makeStyles(theme => ({
     margin: '10px auto',
     boxShadow: theme.shadows[2],
   },
+  leaveButton: {
+    position: 'absolute',
+    top: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+  isReady: {
+    background: ({palette}) => palette.dark.midDarkBlue,
+    color: '#FFFFFF',
+  },
+  mainCardBorder: {
+    border: ({playerColor}) => `8px solid ${!!playerColor.length ? playerColor : 'white'}`,
+  },
+  oppCardBorder: {
+    border: ({oppColor}) => `8px solid ${!!oppColor.length ? oppColor : 'white'}`,
+  },
+  mainReadyBtn: {
+    margin: theme.spacing(1)
+  },
   chip: {
     height: '6vw',
     width: '6vw',
