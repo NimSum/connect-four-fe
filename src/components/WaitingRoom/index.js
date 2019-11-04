@@ -36,6 +36,18 @@ function WaitingRoom(props) {
     resetActiveGame();
   };
 
+  const chipStyleSelector = (isPlayer, isOpp) => {
+    const {playerColor, oppColor, chip, chipHover} = classes;
+    switch(true) {
+      case isPlayer:
+        return `${chip} ${playerColor}`
+      case isOpp:
+        return `${chip} ${oppColor}`
+      default:
+        return `${chip} ${chipHover}`;
+    }
+  };
+
   const handleColorSelect = (color) => {
     if (color !== oppColor) {
       setPlayerColor(color);
@@ -72,6 +84,14 @@ function WaitingRoom(props) {
     }
   }, [players, prevPlayers, currPlayerName])
 
+  const handleReady = () => {
+    const payload = {
+      isReady: !isReady,
+      chipColor: !!playerColor.length ? playerColor : pickRandomColor()
+    }
+    setPlayerReady(payload);
+    setIsReady(!isReady);
+  };
   return (
     <Grid className={classes.root} container wrap='wrap'>
     </Grid>
