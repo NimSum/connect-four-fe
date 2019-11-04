@@ -131,10 +131,33 @@ function WaitingRoom(props) {
       </Grow>
     )
 
+    return createCard();
   })
 
   return (
     <Grid className={classes.root} container wrap='wrap'>
+      <Fab 
+        color="inherit" 
+        aria-label="leave room" 
+        className={classes.leaveButton} 
+        size="small"
+        onClick={handleLeave}>
+        <CloseIcon/>
+      </Fab>
+      <Grid item xs={12}>
+        <Typography variant='h5'>
+          Waiting for Opponent
+        </Typography>
+      </Grid>
+      {generatePlayerCards()}      
+      <Grid item xs={12} className={classes.colorsBox}>
+        <Typography variant='subtitle1' className={classes.colorBoxTitle}>
+          Choose Your Color
+        </Typography>
+        <Box className={classes.colorsContainer}>
+          {generateChips()}
+        </Box>
+      </Grid>
     </Grid>
   )
 };
