@@ -43,6 +43,12 @@ function GameGrid(props) {
     isPlayerTurn,
     isActive
   });
+
+  if (showWaitRoom && players[0].isReady && players[1].isReady) {
+    setShowWaitRoom(false);
+    resetGame();
+  };
+
   useEffect(() => {
     const playerCheck = (!main.player_name || !opponent.player_name || players !== prevState.current.players);
 
