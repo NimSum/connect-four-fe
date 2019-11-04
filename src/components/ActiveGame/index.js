@@ -10,8 +10,24 @@ import { connect } from 'react-redux';
 import { sendInGameMessage } from '../../websocket-api';
 import { leaveActiveGame, resetGrid } from '../../actions';
 
+function ActiveGame(props) {
+  const classes = useStyles(theme);
+  const [isChatActive, setChatActive] = useState(true);
+  const { status, resetGame, resetGameGrid } = props;
+
+  const handleChatToggle = () => {
+    setChatActive(!isChatActive);
+  };
   return (
     <Box className={classes.root}>
+        <Switch
+          checked={isChatActive}
+          onChange={handleChatToggle}
+          value="checkedB"
+          className={classes.chatToggle}
+          color="primary"
+          inputProps={{ 'aria-label': 'Join/leave game chat' }}
+        />
     </Box>
   )
 };
