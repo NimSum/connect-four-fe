@@ -35,6 +35,22 @@ function WaitingRoom(props) {
     leaveGame();
     resetActiveGame();
   };
+
+  useEffect(() => {
+    if (players !== prevPlayers) {
+      for (let player of players) {
+        const p = player || {};
+        if (p.player_name === currPlayerName) {
+          setMainPlayer(p);
+          setPlayerColor(p.chipColor || '');
+        } else {
+          setOpponent(p);
+          setOppColor(p.chipColor || '');
+        }
+      }
+    }
+  }, [players, prevPlayers, currPlayerName])
+
   return (
     <Grid className={classes.root} container wrap='wrap'>
     </Grid>
