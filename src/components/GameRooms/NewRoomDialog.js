@@ -23,6 +23,26 @@ export default function NewRoomDialog({submitHandler, isVisible, showForm }) {
   return (
     <Dialog open={isVisible} onClose={() => showForm(false)} aria-labelledby="Create new room">
       <DialogTitle id="Create new room">Create New Room</DialogTitle>
+      <DialogContent className={classes.inputContainer}>
+        <TextField
+          autoFocus
+          required
+          margin="dense"
+          onChange={handleForm}
+          label="Name (3-35 Chars)"
+          type="text"
+          name="roomName"
+          inputProps={{'maxLength': '45', 'autoComplete': 'off'}}
+        />
+        <TextField
+          margin="dense"
+          onChange={handleForm}
+          label="Password (Optional)"
+          type="text"
+          name="roomPassword"
+          inputProps={{'maxLength': '15', 'autoComplete': 'off'}}
+        />
+      </DialogContent>
     </Dialog>
   );
 }
