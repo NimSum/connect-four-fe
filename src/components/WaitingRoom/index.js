@@ -35,6 +35,25 @@ const useStyles = makeStyles(theme => ({
     margin: '10px auto',
     boxShadow: theme.shadows[2],
   },
+  chip: {
+    height: '6vw',
+    width: '6vw',
+    maxWidth: '80px',
+    maxHeight: '80px',
+    alignSelf: 'flex-end',
+    [theme.breakpoints.down('sm')]: {
+      width: '9vw',
+      height: '9vw',
+      minWidth: '40px',
+      minHeight: '40px',
+    },
+  },
+  chipHover: {
+    '&:hover': {
+      border: ({palette}) => `6px solid ${palette.light.lighterBlue}`,
+      cursor: 'pointer'
+    }
+  },
   colorsContainer: {
     display: 'flex',
     justifyContent: 'space-around',
