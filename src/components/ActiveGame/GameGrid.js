@@ -24,6 +24,14 @@ function GameGrid(props) {
     resetGame, 
     resetPlayerReady
   } = props;
+  const isPlayerTurn = currentTurn === currentPlayer;
+  const isActive = gameStatus === 'active';
+  const [main, setMain] = useState({});
+  const [opponent, setOpponent] = useState({});
+  const [showWaitRoom, setShowWaitRoom] = useState(false);
+  const mainWin = main.player_name === winner;
+  const oppWin = opponent.player_name === winner;
+  const prevState = useRef({winner, grid, players});
   return (
     <div className={classes.root}>
     </div>
