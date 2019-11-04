@@ -24,6 +24,11 @@ function WaitingRoom(props) {
   const { players, currPlayerName, resetActiveGame } = props;
   const prevPlayers = useRef(props.players);
   const classes = useStyles({...colors, oppColor, playerColor});
+  const handleLeave = () => {
+    unsubscribeToActiveGame();
+    leaveGame();
+    resetActiveGame();
+  };
   return (
     <Grid className={classes.root} container wrap='wrap'>
     </Grid>
