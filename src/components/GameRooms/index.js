@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,6 +14,13 @@ import theme from '../../MUI_theme';
 import Box from '@material-ui/core/Box';
 
 function GameRooms(props) {
+  const [isInRoom, setIsInRoom] = useState(false);
+  
+  useEffect(() => {
+    currRoomStatus === 'waiting' || currRoomStatus === 'full'
+    ? setIsInRoom(true)
+    : setIsInRoom(false);
+  }, [currRoomStatus, setIsInRoom])
   return (
     <div>
       
