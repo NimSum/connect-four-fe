@@ -52,6 +52,11 @@ function GameRooms(props) {
     leaveGame();
     resetActiveGame();
   };
+
+  if (currRoomStatus === 'active') {
+    return <Redirect to={'/active_game'} />
+  }
+
   return (
     <div>
       
