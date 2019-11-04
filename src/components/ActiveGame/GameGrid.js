@@ -107,6 +107,18 @@ function GameGrid(props) {
         id={`xCoordinate:${idx}`} 
         onMouseEnter={handleHovered}
       >
+        {
+          column.map((gridSlot, i) => {
+            const isBottom = bottomIdx === i && isHovered;
+            const isNew = prevSlot.join('') === [idx, i, gridSlot].join('');
+            const defaultSlot = (
+              <Box 
+                key={`col${idx}row${i}player${gridSlot}`} 
+                className={`${classes.slot} ${handleSlotStyle(gridSlot, isHovered, isBottom )}`}
+                {...slotProps}
+              />
+            );
+        }
       </Box>
     )
   });
