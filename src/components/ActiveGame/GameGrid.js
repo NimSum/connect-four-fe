@@ -89,11 +89,33 @@ function GameGrid(props) {
     placePlayerChip(xCoordinate);
   };
 
+  const generateGrid = () => grid.map((column, idx) => {
+    const isHovered = xCoordinate === idx;
+    let bottomIdx;
+
+    for (let i = column.length - 1; i >= 0; i--) {
+      if (column[i] === 0) {
+        bottomIdx = i;
+        break;
+      };
+    }
+    
+    return (
+      <Box 
+        key={`col${idx}`} 
+        className={classes.column} 
+        id={`xCoordinate:${idx}`} 
+        onMouseEnter={handleHovered}
+      >
+      </Box>
+    )
+  });
   return (
     <div className={classes.root}>
     </div>
   )
 };
+
 const mapStateToProps = ({ currentGame, currentPlayer }) => ({
   grid: currentGame.gridX,
   currentTurn: currentGame.currentPlayer
