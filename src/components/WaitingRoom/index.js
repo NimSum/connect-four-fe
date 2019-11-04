@@ -97,6 +97,14 @@ function WaitingRoom(props) {
     const { playerCard, mainCardBorder, oppCardBorder, isReady } = classes;
     let p = player || {};
     const ifMain = (p === mainPlayer);
+
+    const opponentBtn = (
+      <Box className={classes.opponentReadyBtn} boxShadow={3}>
+        <Typography variant='subtitle1'>
+          { opponent.isReady ? 'READY!' : 'Not Ready' }
+        </Typography>
+      </Box>
+    );
   })
 
   return (
