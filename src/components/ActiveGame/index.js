@@ -20,6 +20,8 @@ function ActiveGame(props) {
   };
   return (
     <Box className={classes.root}>
+      <GameGrid />
+      <Box className={classes.chatBox}>
         <Switch
           checked={isChatActive}
           onChange={handleChatToggle}
@@ -28,6 +30,13 @@ function ActiveGame(props) {
           color="primary"
           inputProps={{ 'aria-label': 'Join/leave game chat' }}
         />
+        {isChatActive && (
+          <ChatBox 
+          messages={props.messages} 
+          sendMessage={handleSendMessage} 
+          title={'Game Chat:'}/>
+        )}
+      </Box>
     </Box>
   )
 };
