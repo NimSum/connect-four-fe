@@ -21,6 +21,12 @@ function ChatBox(props) {
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
   };
+
+  useEffect(() => {
+    if (autoScroll) {
+      scrollToBottom();
+    }
+  }, [props.messages, autoScroll])
   return (
     <Box boxShadow={3} className={classes.root}>
     </Box>
