@@ -18,6 +18,17 @@ function ActiveGame(props) {
   const handleChatToggle = () => {
     setChatActive(!isChatActive);
   };
+
+  const handleSendMessage = (message) => {
+    sendInGameMessage(message);
+  };
+
+  if (status !== 'active' && status !== 'full') {
+    if (status === 'waiting') resetGameGrid()
+    else resetGame();
+    return <Redirect to='/home' />
+  };
+
   return (
     <Box className={classes.root}>
       <GameGrid />
