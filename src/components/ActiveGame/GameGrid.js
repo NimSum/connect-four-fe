@@ -70,6 +70,16 @@ const useStyles = makeStyles(theme => ({
     borderColor: ({isPlayerTurn}) => isPlayerTurn ? 'white' : 'darkGray',
     borderWidth: 4
   },
+  mainBg: {
+    background: ({main}) => main,
+    border: ({main, mainWin, palette}) => 
+      `4px solid ${mainWin ? palette.light.lighterGray : main}`,
+  },
+  oppBg: {
+    background: ({opp}) => opp,
+    border: ({opp, oppWin, palette}) => 
+      `4px solid ${oppWin ? palette.light.lighterGray : opp}`,
+  },
 }));
 
 const slotProps = {
