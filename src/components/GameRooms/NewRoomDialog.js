@@ -8,6 +8,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default function NewRoomDialog({submitHandler, isVisible, showForm }) {
+  const classes = useStyles();
+  const [formFields, setFormFields] = useState({roomName: '', roomPassword: ''});
+
+  const handleForm = ({ target }) => setFormFields({ ...formFields, [target.name]: target.value });
   return (
     <Dialog open={isVisible} onClose={() => showForm(false)} aria-labelledby="Create new room">
       <DialogTitle id="Create new room">Create New Room</DialogTitle>
