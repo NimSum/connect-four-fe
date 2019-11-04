@@ -19,6 +19,13 @@ function GameRooms(props) {
   const [isInRoom, setIsInRoom] = useState(false);
   const classes = useStyles({...theme, isInRoom});
   
+  const handleFormSubmit = ({roomName, roomPassword}) => {
+    createNewGameRoom(roomName, roomPassword);
+    listenToActiveGame();
+    showForm(false);
+  };
+
+  
   useEffect(() => {
     currRoomStatus === 'waiting' || currRoomStatus === 'full'
     ? setIsInRoom(true)
