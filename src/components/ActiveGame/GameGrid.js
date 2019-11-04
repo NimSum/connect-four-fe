@@ -38,7 +38,30 @@ const useStyles = makeStyles(theme => ({
     dispaly: 'flex',
     flexDirection: 'column',
   }, 
+  slot: {
+    borderRadius: '50%',
+    width: '8vw',
+    height: '8vw',
+    margin: '.8vw',
+    borderColor: 'darkGray',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '125px',
+      maxHeight: '125px',
+      margin: '13px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '12vw',
+      height: '12vw',
+    }
+  },
 }));
+
+const slotProps = {
+  m: 1,
+  border: 1,
+  boxShadow: 3
+};
+
 function GameGrid(props) {
   const { 
     grid, 
