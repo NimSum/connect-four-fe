@@ -31,6 +31,21 @@ function GameRooms(props) {
     ? setIsInRoom(true)
     : setIsInRoom(false);
   }, [currRoomStatus, setIsInRoom])
+
+  const joinRoom = (roomId, password = '') => {
+    if (isInRoom) {
+      handleLeave();
+      joinGameRoom(roomId, password);
+      listenToActiveGame();
+    } else {
+      joinGameRoom(roomId, password);
+      listenToActiveGame();
+    }
+  };
+
+  const handleShowForm = (bool) => {
+    showForm(bool);
+  };
   return (
     <div>
       
