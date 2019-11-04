@@ -14,6 +14,7 @@ import request from '../../requests';
 import theme from '../../MUI_theme';
 import PlayerDrawer from '../PlayerDrawer';
 import Splash from '../Splash';
+import FourOhFourPage from '../404Page';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -84,6 +85,7 @@ function App(props) {
     <div className={classes.root}>
       <Header toggleDrawer={handleDrawerToggle} />
       { props.player.token && <PlayerDrawer isVisible={isDrawerOpen} toggleDrawer={handleDrawerToggle}/>}
+      <Switch>
       <Route 
         exact path='/'
         render={(() => {
@@ -119,6 +121,8 @@ function App(props) {
           })
         }
       />
+        <Route component={FourOhFourPage} />
+      </Switch>      
     </div>
   );
 }
