@@ -56,6 +56,23 @@ function GameGrid(props) {
       prevState.current.players = players;
     };
   }, [currentPlayer, players, main, opponent, isActive]);
+
+  useEffect(() => {
+    if (winner !== prevState.current.winner && winner !== null && isActive) {
+      setMain({...main, isReady: false});
+      setOpponent({...opponent, isReady: false});
+      resetPlayerReady();
+      setShowWaitRoom(true);
+    }
+    prevState.current.winner = winner;
+  }, [
+    winner, 
+    resetPlayerReady, 
+    main,
+    opponent,
+    setShowWaitRoom,
+    isActive
+  ]);
   return (
     <div className={classes.root}>
     </div>
