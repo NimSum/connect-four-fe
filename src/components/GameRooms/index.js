@@ -53,6 +53,26 @@ function GameRooms(props) {
     resetActiveGame();
   };
 
+  const availableRooms = (
+    <Box boxShadow={3} className={classes.roomsContainer}>
+      <Box className={classes.titleContainer}>
+        <Typography variant="h6">
+          Available Rooms: 
+        </Typography>
+        { !isInRoom && 
+            <Button 
+              variant="outlined" 
+              color="primary" 
+              onClick={() => handleShowForm(true)}
+              startIcon={<AddIcon/>}>
+              New Room
+            </Button>
+        }
+      </Box>
+      <Rooms isInRoom={isInRoom} joinHandler={joinRoom}/>
+    </Box>
+  );
+
   if (currRoomStatus === 'active') {
     return <Redirect to={'/active_game'} />
   }
