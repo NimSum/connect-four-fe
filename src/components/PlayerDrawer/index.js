@@ -24,6 +24,22 @@ import { connect } from 'react-redux';
 function PlayerDrawer(props) {
   const classes = useStyles(theme);
 
+  const handlePlayerDetails = () => {
+    /// SHOW USER DETAILS
+  };
+
+
+  const handlePlayerStats = () => {
+    /// SHOW STATS
+  };
+
+  const handleAchievements = () => {
+    /// HANDLE ACHIEVEMENTS
+  };
+
+  const handleFriends = () => {
+    /// HANDLE SHOW FRIENDS
+  };
 
   const handleLogout = () => {
     leaveWorldChat();
