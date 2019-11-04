@@ -39,6 +39,15 @@ function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) {
       }}
     />
   );
+
+  const handleJoinClick = (roomId, hasPassword) => {
+    if (hasPassword && !roomPass.length) {
+      setShowPassInput(true);
+    } else {
+      joinHandler(roomId, roomPass);
+      setRoomPass('');
+    }
+  };
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
   allGameRooms,
   currPlayerName: currentPlayer.player.player_name,
