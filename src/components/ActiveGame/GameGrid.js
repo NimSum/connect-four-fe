@@ -80,6 +80,15 @@ const useStyles = makeStyles(theme => ({
     border: ({opp, oppWin, palette}) => 
       `4px solid ${oppWin ? palette.light.lighterGray : opp}`,
   },
+  addChipIcon: {
+    width: '4vw',
+    height: '4vw',
+    minWidth: '30px',
+    minHeight: '30px',
+  },
+  addChipBtn: {
+    color: ({isPlayerTurn}) => isPlayerTurn ? 'white' : 'darkGray',
+  },
 }));
 
 const slotProps = {
