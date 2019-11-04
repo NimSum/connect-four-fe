@@ -140,6 +140,15 @@ function GameGrid(props) {
                 />
               </Grow>
             );
+            
+            if (isHovered && isBottom && !showWaitRoom) {
+              return bottomHoveredSlot;
+            } else if (isNew) {
+              return newSlot;
+            } else {
+              return defaultSlot;
+            }
+          })
         }
       </Box>
     )
