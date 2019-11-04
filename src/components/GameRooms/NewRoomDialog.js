@@ -7,6 +7,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  inputContainer: {
+    display: 'flex',
+    width: '30vw',
+    maxWidth: '550px',
+    minWidth: '280px',
+    flexDirection: 'column'
+  }
+}));
+
 export default function NewRoomDialog({submitHandler, isVisible, showForm }) {
   const classes = useStyles();
   const [formFields, setFormFields] = useState({roomName: '', roomPassword: ''});
