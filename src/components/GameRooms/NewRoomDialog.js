@@ -43,6 +43,14 @@ export default function NewRoomDialog({submitHandler, isVisible, showForm }) {
           inputProps={{'maxLength': '15', 'autoComplete': 'off'}}
         />
       </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCreate} color="primary">
+          Create
+        </Button>
+        <Button onClick={() => showForm(false)} color="primary">
+          Cancel
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 }
