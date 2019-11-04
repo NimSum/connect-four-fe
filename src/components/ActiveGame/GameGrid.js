@@ -84,6 +84,11 @@ function GameGrid(props) {
     const colId = (target.id || target.parentElement.id).split(':');
     setCoordinate(parseInt(colId[1]));
   };
+
+  const handleChipPlacement = () => {
+    placePlayerChip(xCoordinate);
+  };
+
   return (
     <div className={classes.root}>
     </div>
