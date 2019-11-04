@@ -132,6 +132,14 @@ function GameGrid(props) {
                 {...slotProps}
               />
             );
+            const newSlot = (
+              <Grow key={`col${idx}row${i}player${gridSlot}`} in={isNew} timeout={600}>
+                <Box 
+                  className={`${classes.slot} ${handleSlotStyle(gridSlot, isHovered, isBottom )}`}
+                  {...slotProps}
+                />
+              </Grow>
+            );
         }
       </Box>
     )
