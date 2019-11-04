@@ -78,9 +78,16 @@ function GameRooms(props) {
   }
 
   return (
-    <div>
-      
-    </div>
+    <article className={classes.root}>
+      <NewRoomDialog 
+        submitHandler={handleFormSubmit} 
+        isVisible={formVisible}
+        showForm={handleShowForm}/>
+      {
+        isInRoom && <WaitingRoom leaveHandler={handleLeave} />
+      }
+      {availableRooms}
+    </article>
   )
 }
 
