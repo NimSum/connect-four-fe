@@ -15,6 +15,10 @@ import theme from '../../MUI_theme';
 import Input from '@material-ui/core/Input';
 
 function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) { 
+  const [isInRoom, setIsInRoom] = useState(false);
+  const [roomPass, setRoomPass] = useState('');
+  const [showPassInput, setShowPassInput] = useState(false);
+  const classes = useStyles({...theme, isInRoom});
 
 
 const mapStateToProps = ({ allGameRooms, currentPlayer, currentGame }) => ({
