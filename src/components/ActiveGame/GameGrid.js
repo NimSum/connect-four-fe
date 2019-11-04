@@ -12,6 +12,33 @@ import { connect } from 'react-redux';
 import { placePlayerChip } from '../../websocket-api';
 import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    paddingRight: theme.spacing(1),
+    margin: 'auto'
+  },
+  turnIndicator: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '10px 10px 0 0',    
+    background: ({isPlayerTurn, main, opp}) => isPlayerTurn ? main : opp,
+  },
+  gridContainer: {
+    display: 'flex',
+    padding: theme.spacing(1),
+    justifyContent: 'center',
+    borderRadius: '0 0 10px 10px',    
+    background: ({palette}) => palette.dark.midBlue,    
+    [theme.breakpoints.down('sm')]: {
+      width: '98vw'
+    },
+  },
+  column: {
+    dispaly: 'flex',
+    flexDirection: 'column',
+  }, 
+}));
 function GameGrid(props) {
   const { 
     grid, 
