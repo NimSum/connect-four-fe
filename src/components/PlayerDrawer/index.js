@@ -24,6 +24,14 @@ import { connect } from 'react-redux';
 function PlayerDrawer(props) {
   const classes = useStyles(theme);
 
+
+  const handleLogout = () => {
+    leaveWorldChat();
+    leaveGame();
+    props.resetActiveGame();
+    props.deletePlayer();
+    localStorage.removeItem('connect_four_token');
+  };
 const mapStateToProps = ({ currentPlayer }) => ({
   player: currentPlayer.player,
   isActive: currentPlayer.token
