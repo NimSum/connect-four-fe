@@ -21,6 +21,42 @@ import { leaveWorldChat, leaveGame } from '../../websocket-api';
 import { saveCurrentPlayer, leaveActiveGame } from '../../actions';
 import { connect } from 'react-redux';
 
+const drawerWidth = 230
+
+const useStyles = makeStyles(theme => ({
+  drawer: {
+    [theme.breakpoints.up('md')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  toolbar: {
+    ...theme.mixins.toolbar,
+    padding: theme.spacing(1),
+    display: 'flex',
+    alignItems: 'center'
+  },
+  drawerPaper: {
+    width: drawerWidth,
+    background: ({palette}) => palette.light.lighterBlue,
+    color: ({palette}) => palette.dark.darkerBlueGray
+  },
+  fixedMenu: {
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  menuList: {
+  },
+  userName: {
+    marginLeft: theme.spacing(3)
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'red'
+  }
+}));
+
 function PlayerDrawer(props) {
   const classes = useStyles(theme);
 
