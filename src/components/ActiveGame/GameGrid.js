@@ -80,6 +80,28 @@ function GameGrid(props) {
     setShowWaitRoom,
     isActive
   ]);
+
+  const handleSlotStyle = (slot, hovered, isBottom) => {
+    const {
+      mainBg,
+      oppBg,
+      highlightSlot,
+      highlightBorder,
+      emptySlot,
+    } = classes;
+
+    switch (true) {
+      case slot === main.slot:
+        return mainBg;       
+      case slot === opponent.slot:
+        return oppBg;
+      case hovered && isBottom && !oppWin && !mainWin:
+        return `${highlightSlot} ${highlightBorder}`  
+      default:
+        return emptySlot
+    }
+  };
+ 
   const handleHovered = ({target}) => {
     const colId = (target.id || target.parentElement.id).split(':');
     setCoordinate(parseInt(colId[1]));
