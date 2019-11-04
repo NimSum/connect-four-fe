@@ -42,6 +42,20 @@ function GameGrid(props) {
     isPlayerTurn,
     isActive
   });
+  useEffect(() => {
+    const playerCheck = (!main.player_name || !opponent.player_name || players !== prevState.current.players);
+
+    if (playerCheck && isActive) {
+      if (players[0].player_name === currentPlayer) {
+        setMain({...players[0], slot: 1 });
+        setOpponent({...players[1], slot: 2 });
+      } else if (players[1].player_name === currentPlayer) {
+        setMain({...players[1], slot: 2 });
+        setOpponent({...players[0], slot: 1});
+      };
+      prevState.current.players = players;
+    };
+  }, [currentPlayer, players, main, opponent, isActive]);
   return (
     <div className={classes.root}>
     </div>
