@@ -24,6 +24,12 @@ function WaitingRoom(props) {
   const { players, currPlayerName, resetActiveGame } = props;
   const prevPlayers = useRef(props.players);
   const classes = useStyles({...colors, oppColor, playerColor});
+
+  const pickRandomColor = () => {
+    const cleared = [...hues].filter(c => c !== oppColor);
+    return cleared[Math.floor(Math.random() * cleared.length)];
+  }
+    
   const handleLeave = () => {
     unsubscribeToActiveGame();
     leaveGame();
