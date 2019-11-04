@@ -9,7 +9,7 @@ const worldChat = (state = { players: [], messages: [] } , action) => {
       if (action.player.update_type === 'delete') {
         const idxFound = players.findIndex(p => p.player_name === player.player_name);
         players.splice(idxFound, 1);
-        return { messages, players }
+        return { messages, players: [...players] }
       } else {
         return { messages, players: [...players, player] };
       }
@@ -17,6 +17,8 @@ const worldChat = (state = { players: [], messages: [] } , action) => {
       return { players, messages: [...messages, action.message] };
     case 'UPDATE_GLOBAL_CHAT':
       return { players: action.players, messages: action.messages };
+    case 'LOGOUT_USER':
+      return { players: [], messages: [] };
     default:
       return state;
   }

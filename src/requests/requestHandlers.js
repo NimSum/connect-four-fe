@@ -2,7 +2,13 @@ const handlers = {
   routes:  {
     login: 'http://localhost:3000/api/v1/login',
     signup: 'http://localhost:3000/api/v1/signup',
+    anonLogin: 'http://localhost:3000/api/v1/anonymous'
   },
+  // routes:  {
+  //   login: 'http://ec2-34-205-32-52.compute-1.amazonaws.com:3000/api/v1/login',
+  //   signup: 'http://ec2-34-205-32-52.compute-1.amazonaws.com:3000/api/v1/signup',
+  //   anonLogin: 'http://ec2-34-205-32-52.compute-1.amazonaws.com:3000/api/v1/anonymous'
+  // },
   noTokenPost: function(route, payload) {
     return fetch(route, {
       method: 'POST',
@@ -24,6 +30,9 @@ const handlers = {
         "Authorization": `Bearer ${token}`
       }
     });
+  },
+  anonymousLogin: function(player) {
+    return this.noTokenPost(this.routes.anonLogin, player)
   }
 };
 

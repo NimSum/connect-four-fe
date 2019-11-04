@@ -1,48 +1,42 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import { RBButton } from '../Buttons';
-import { leaveWorldChat } from '../../websocket-api';
-import { saveCurrentPlayer } from '../../actions';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../MUI_theme';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: '100vw'
   },
   appBar: {
-    background: (props) => props.cyan.main,
+    background: ({palette}) => palette.dark.darkBlueGray,
+    display: 'flex',
+    justifyContent: 'center',
   },
   title: {
     flexGrow: 1,
-    color: (props) => props.deepPurple.light
+    color: ({palette}) => palette.light.lighterGray
   },
-});
+  menuButton: {
+    marginRight: theme.spacing(2),
+    color: theme.palette.primary.contrastText,
+    [theme.breakpoints.up('lg')]: {
+      display: 'none',
+    },
+  }
+}));
 
 function Header(props) {
-  const classes = useStyles(theme.palette);
-
-  const handleLogout = () => {
-    leaveWorldChat();
-    props.deletePlayer();
-    localStorage.removeItem('connect_four_token');
-  }
-
-  const handleDetails = () => {
-    /// SHOW USER DETAILS
-  }
-
-  const menuButtons = (
-    <div>
-      <RBButton colorType="blue" name="My Details" clickHandler={handleDetails} />
-      <RBButton colorType="red" name="Logout" clickHandler={handleLogout} />
-    </div>
-  )
+  const classes = useStyles(theme);
+  const {toggleDrawer} = props;
 
   return (
+    <>
     <header className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
@@ -50,20 +44,26 @@ function Header(props) {
             {/* LOGO GOES HERE */}
             Connect [ ]
           </Typography>
-          {props.isActive && menuButtons}
+          {
+            props.player &&
+            <IconButton
+              aria-label="open drawer"
+              edge="start"
+              onClick={toggleDrawer}
+              className={classes.menuButton}
+            >
+              <MenuIcon />
+             </IconButton>
+          }
         </Toolbar>
       </AppBar>
     </header>
+    </>
   );
 }
 
 const mapStateToProps = ({ currentPlayer }) => ({
-  player: currentPlayer,
-  isActive: currentPlayer.token
+  player: currentPlayer.player || false,
 });
 
-const mapDispatchToProps = dispatch => ({
-  deletePlayer: () => dispatch(saveCurrentPlayer({})),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

@@ -1,41 +1,57 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
-import deepPurple from '@material-ui/core/colors/deepPurple';
-import yellow from '@material-ui/core/colors/yellow';
-import cyan from '@material-ui/core/colors/cyan';
+import {
+  red,
+  blue,
+  deepPurple,
+  yellow,
+  cyan,
+  lime,
+  blueGrey,
+  grey,
+  lightBlue,
+  lightGreen,
+  orange,
+  pink,
+} from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
   palette: {
-    blue: {
-      light: blue['A100'],
-      main: blue['A500'],
-      dark: blue['A700'],
-      contrastText: blue['A50'],
+    chips: {
+      purple: deepPurple['500'],
+      pink: pink['A200'],
+      red: red['500'],
+      yellow: yellow['A200'],
+      blue: blue['500'],
+      orange: orange['A400'],
     },
-    red: {
-      light: red['A100'],
-      main: red['A500'],
-      dark: red['A800'],
-      contrastText: red['A50'],
+    background: {
+      blue: {
+        dark: blue['A700'],
+        light: lightBlue['A700'],
+        lighter: lightBlue['100'],
+        cyan: cyan['A400']
+      },
+      green: {
+        lime: lime['A700'],
+        light: lightGreen['A700']
+      },
+      red: {
+        red: red['A400'],
+      }
     },
-    cyan: {
-      light: cyan['A100'],
-      main: cyan['A400'],
-      dark: cyan['A600'],
-      contrastText: cyan['A50'],
+    dark: {
+      darkBlueGray: blueGrey['800'],
+      darkerBlueGray: blueGrey['900'],
+      darkGray: grey['800'],
+      darkerGray: grey['900'],
+      midDarkBlue: blueGrey['400'],
+      midBlue: blueGrey['300']
     },
-    yellow: {
-      light: yellow['A100'],
-      main: yellow['A500'],
-      dark: yellow['A700'],
-      contrastText: yellow['A50'],
-    },
-    deepPurple: {
-      light: deepPurple['A100'],
-      main: deepPurple['A500'],
-      dark: deepPurple['A700'],
-      contrastText: deepPurple['A50'],
+    light: {
+      lighterGray: grey['50'],
+      lightGray: grey['200'],
+      lighterBlue: blueGrey['50'],
+      lightBlue: blueGrey['200'],
     }
   },
 });
