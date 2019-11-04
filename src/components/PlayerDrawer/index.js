@@ -90,6 +90,42 @@ function PlayerDrawer(props) {
       </List>
     </div>
   );
+
+  return (
+    <nav className={classes.drawer} aria-label="mailbox folders">
+      <Hidden smUp implementation="css">
+        <Drawer
+          variant="temporary"
+          anchor="right"
+          open={props.isVisible}
+          onClose={props.toggleDrawer}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true,
+          }}
+        >
+          {drawers}
+        </Drawer>
+      </Hidden>
+      <Hidden xsDown implementation="css">
+        <Drawer
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          className={classes.fixedMenu}
+          variant="permanent"
+          open
+          anchor="right"
+        >
+          {drawers}
+        </Drawer>
+      </Hidden>
+    </nav>
+  );
+}
+
 const mapStateToProps = ({ currentPlayer }) => ({
   player: currentPlayer.player,
   isActive: currentPlayer.token
