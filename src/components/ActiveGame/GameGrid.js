@@ -60,6 +60,16 @@ const useStyles = makeStyles(theme => ({
         ? palette.dark.midBlue 
         : palette.light.lighterGray
   },
+  highlightSlot: {
+    background: ({main}) => main,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  highlightBorder: {
+    borderColor: ({isPlayerTurn}) => isPlayerTurn ? 'white' : 'darkGray',
+    borderWidth: 4
+  },
 }));
 
 const slotProps = {
