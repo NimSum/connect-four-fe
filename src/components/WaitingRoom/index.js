@@ -105,6 +105,32 @@ function WaitingRoom(props) {
         </Typography>
       </Box>
     );
+
+    const createCard = () => (
+      <Grow in={!!p.player_name} key={p.clientId || 'OPPONENT'}>
+        <Grid item xs={5}  
+        className={`${playerCard} ${ifMain ? mainCardBorder : oppCardBorder} ${p.isReady && isReady}`}>
+          {!!p.player_name && generateAvatar(p.player_name)}
+          <Typography variant='h6'>
+            {p.player_name}
+          </Typography>
+          <Box>
+            {
+              ifMain && 
+                <Button
+                  onClick={handleReady}
+                  variant='contained'
+                  color={p.isReady ? 'primary' : 'inherit'}
+                  className={classes.mainReadyBtn}>
+                  {p.isReady ? 'Ready!' : 'Ready?'}
+                </Button>
+            }
+            {!!opponent.player_name && !ifMain && opponentBtn}
+          </Box>  
+        </Grid>
+      </Grow>
+    )
+
   })
 
   return (
