@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -13,6 +13,47 @@ import LockIcon from '@material-ui/icons/Lock';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../MUI_theme';
 import Input from '@material-ui/core/Input';
+
+const useStyles = makeStyles(theme => ({
+  cardItem: {
+    backgroundColor: ({palette}) => palette.background.blue.lighter,
+    color: ({palette}) => palette.dark.darkerBlueGray,
+    borderRadius: '5px',
+    marginBottom: '10px'
+  },
+  joinBtn: {
+    marginRight: theme.spacing(2),
+    background: theme.palette.background.paper,
+    '&:hover': {
+      background: ({palette}) => palette.background.green.light
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '5px'
+    },
+  },
+  cardsContainer: {
+    padding: theme.spacing(1),
+    height: ({isInRoom}) => isInRoom ? '51vh' : '87vh',
+    [theme.breakpoints.down('sm')]: {
+      maxHeight: '43vh'
+    },
+    overflow: 'scroll',
+  },
+  fullMessage: {
+    color: theme.palette.common.white
+  },
+  avatarContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column'
+    },
+  },
+  avatarIcon: {
+    padding: '5px'
+  }
+}));
 
 function Rooms({allGameRooms, joinHandler, currPlayerName, roomStatus}) { 
   const [isInRoom, setIsInRoom] = useState(false);
