@@ -17,6 +17,10 @@ function ChatBox(props) {
   const messagesEndRef = useRef(null);
   const [newMessage, setNewMessage] = useState('');  
   const [autoScroll, switchAutoScroll] = useState(false);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+  };
   return (
     <Box boxShadow={3} className={classes.root}>
     </Box>
