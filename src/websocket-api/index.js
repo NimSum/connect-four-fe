@@ -8,7 +8,7 @@ import {
   handleDisconnect
 } from './handlers';
 
-const socket = openSocket('http://ec2-34-205-32-52.compute-1.amazonaws.com:3000');
+const socket = openSocket('https://connect-four-be.herokuapp.com/');
 
 //// AUTO WORLD CHAT 
 socket.on('world chat update', handleWorldChat);
