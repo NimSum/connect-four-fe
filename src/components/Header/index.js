@@ -42,7 +42,7 @@ function Header(props) {
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
             {/* LOGO GOES HERE */}
-            Connect [ ]
+            Connect 4 Friends
           </Typography>
           {
             props.player &&
