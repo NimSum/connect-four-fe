@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/connect-four-fe/static/js/main.fe1a23aa.chunk.js",
-    "main.js.map": "/connect-four-fe/static/js/main.fe1a23aa.chunk.js.map",
+    "main.js": "/connect-four-fe/static/js/main.e3841f92.chunk.js",
+    "main.js.map": "/connect-four-fe/static/js/main.e3841f92.chunk.js.map",
     "runtime-main.js": "/connect-four-fe/static/js/runtime-main.6c4f924e.js",
     "runtime-main.js.map": "/connect-four-fe/static/js/runtime-main.6c4f924e.js.map",
     "static/js/2.02f7b2ab.chunk.js": "/connect-four-fe/static/js/2.02f7b2ab.chunk.js",
     "static/js/2.02f7b2ab.chunk.js.map": "/connect-four-fe/static/js/2.02f7b2ab.chunk.js.map",
     "index.html": "/connect-four-fe/index.html",
-    "precache-manifest.62b8785344679aa7189a51a07d12a840.js": "/connect-four-fe/precache-manifest.62b8785344679aa7189a51a07d12a840.js",
+    "precache-manifest.4c16e2b28c4bd100f38ec1ab153d9931.js": "/connect-four-fe/precache-manifest.4c16e2b28c4bd100f38ec1ab153d9931.js",
     "service-worker.js": "/connect-four-fe/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.6c4f924e.js",
     "static/js/2.02f7b2ab.chunk.js",
-    "static/js/main.fe1a23aa.chunk.js"
+    "static/js/main.e3841f92.chunk.js"
   ]
 }
