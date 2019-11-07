@@ -1,6 +1,6 @@
 # Connect 4 Friends(FE)
-You can view this app live at: https://nimsum.github.io/connect-four-fe/
-Checkout the backend API for this app at: https://github.com/NimSum/connect-four-be
+* You can view this app live at: https://nimsum.github.io/connect-four-fe/
+* Checkout the backend API for this app at: https://github.com/NimSum/connect-four-be
 
 This app was created for anyone to play and chat connect four with their friends and other users! It features account creation/login/anonymous login to tailor user login preferences. It also has a world chat feature and it allows users to create a public/private game room for them to play Connect 4 and chat!
 
