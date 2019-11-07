@@ -103,14 +103,3 @@ I created this app to challenge myself to learn new technologies such as Materia
 - [x] Socket.io
 - [x] Enzyme & Jest testing
 
-### Back-end
-- [x] TypeScript
-- [x] Node.js/Express
-- [x] Mocha
-- [x] Socket.io
-- [x] MongoDb
-- [x] Mongoose
-- [x] JWT Authentication
-- [x] Express Middleware
-- [x] AWS(EC2)
-
