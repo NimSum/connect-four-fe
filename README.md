@@ -90,6 +90,7 @@ To give myself a better understanding of how the layout and UI/UX would be, I cr
 - Custom Friends Chat 
 - Achievements
 - Invite Player to hidden room
+- Emojis(What kind of chat app has no emojis these days?)
 
 ## Project Emphasis
 I created this app to challenge myself to learn new technologies such as Material UI and Socket.io(client). The complexity of the front-end allowed me to dive deeper into more complex Redux state management. I also gained a deeper understanding of the new React hooks API such as useEffect(different lifecycles), useState, useRef, and useCallback.
