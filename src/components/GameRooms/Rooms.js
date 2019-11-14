@@ -86,8 +86,9 @@ function Rooms({isInRoom, allGameRooms, joinHandler, currPlayerName}) {
   const generateGameRooms = () => {
     return allGameRooms.map(room => {
       const { roomId, players, name, status, hasPassword } = room;
-      const playerInfo = players[0] || players[1];
-      const { player_name } = playerInfo;
+      const roomHost = players[0] || players[1];
+      const { player_name, win_streak, wins, losses } = roomHost;
+      const hostWinRate = Math.round((wins / (wins + losses)) * 100)
       const isFull = status === 'full';
       const isAlreadyInRoom = players.some(p => {
         if (p !== null) {
@@ -113,9 +114,8 @@ function Rooms({isInRoom, allGameRooms, joinHandler, currPlayerName}) {
             secondary={player_name}
           />
           <ListItemSecondaryAction className={classes.avatarContainer}>
-              {/* CALCULATE LATER */}
               <Typography variant="subtitle2">
-                Win Rate: 90%
+                { `Win Rate: ${hostWinRate > 0 ? hostWinRate : 0}%` }
               </Typography>
             <IconButton className={classes.avatarIcon} edge="end" aria-label="requires-password">
               {generateAvatar(player_name)}
