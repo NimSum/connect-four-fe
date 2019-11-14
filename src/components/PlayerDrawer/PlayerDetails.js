@@ -7,6 +7,15 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 
 function PlayerDetails({player}) {
+  const classes = useStyles();
+  const {
+    win_streak,
+    wins,
+    losses,
+    games_played,
+    email,
+    game_history
+  } = player;
   return (
   )
 }
