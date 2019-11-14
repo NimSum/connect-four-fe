@@ -64,11 +64,6 @@ function PlayerDrawer(props) {
     /// SHOW USER DETAILS
   };
 
-
-  const handlePlayerStats = () => {
-    /// SHOW STATS
-  };
-
   const handleAchievements = () => {
     /// HANDLE ACHIEVEMENTS
   };
@@ -96,11 +91,11 @@ function PlayerDrawer(props) {
       <Divider />
       <List className={classes.menuList}>
         <Tooltip title="Under Development">
-          <ListItem button key={"Stats"} onClick={handlePlayerStats}>
+          <ListItem button key={"Account"} onClick={handlePlayerDetails}>
             <ListItemIcon>
-              <EqualizerIcon />
+              <PermIdentityIcon />
             </ListItemIcon>
-            <ListItemText primary={"Stats"} />
+            <ListItemText primary={"Account"} />
           </ListItem>
         </Tooltip>
         <Tooltip title="Under Development">
@@ -111,14 +106,6 @@ function PlayerDrawer(props) {
             <ListItemText primary={"Achievements"} />
           </ListItem>
         </Tooltip>       
-        <Tooltip title="Under Development">
-          <ListItem button key={"Account"} onClick={handlePlayerDetails}>
-            <ListItemIcon>
-              <PermIdentityIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Account"} />
-          </ListItem>
-        </Tooltip>
         <Tooltip title="Under Development">
           <ListItem button key={"Friends"} onClick={handleFriends}>
             <ListItemIcon>
