@@ -16,7 +16,25 @@ function PlayerDetails({player}) {
     email,
     game_history
   } = player;
-  return (
+
+  const generateGameHistory = () => game_history.map(match => {
+    const {
+      _id,
+      vs_player,
+      is_winner,
+    } = match;
+
+    const historyText = is_winner 
+    ? `You won against ${vs_player}`
+    : `You lost against ${vs_player}`;
+
+    return (
+      <ListItem key={_id}>
+        { historyText }
+      </ListItem>
+    );
+
+  });
   )
 }
 
