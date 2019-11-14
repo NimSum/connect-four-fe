@@ -238,6 +238,7 @@ function GameGrid(props) {
             );
             const defaultSlot = (
               <Box 
+                onClick={handleHovered}
                 key={`col${idx}row${i}player${gridSlot}`} 
                 className={`${classes.slot} ${handleSlotStyle(gridSlot, isHovered, isBottom )}`}
                 {...slotProps}
