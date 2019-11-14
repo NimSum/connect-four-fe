@@ -12,10 +12,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     position: 'fixed',
-    top: '5%',
+    top: '6%',
     right: '0',
     margin: theme.spacing(2),
-    flexDirection: 'row-reverse'
+    flexDirection: 'row-reverse',
   },
   inputsContainer: {
     display: 'flex',
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
   loadingIcon: {
     display: 'flex',
+    zIndex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
