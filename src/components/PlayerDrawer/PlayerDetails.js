@@ -35,6 +35,37 @@ function PlayerDetails({player}) {
     );
 
   });
+
+  return (
+    <Grow in={true}>
+      <ListItem className={classes.root}>
+        <Box className={classes.infoContainer}>
+          <Typography variant="subtitle2" gutterBottom>
+            Wins: {wins}
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom>
+            Win Streak: {win_streak}
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom>
+            Losses: {losses}
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom>
+            Total Matches: {games_played}
+          </Typography>
+        </Box>
+        <Box className={classes.infoContainer}>
+          <Typography variant="subtitle2" gutterBottom>
+            Email: {email}
+          </Typography>
+        </Box>
+        <Typography variant="subtitle2" gutterBottom>
+           Game History:
+        </Typography>
+        <List className={classes.gameHistoryList}>
+          {generateGameHistory()}
+        </List>
+      </ListItem>
+    </Grow>
   )
 }
 
