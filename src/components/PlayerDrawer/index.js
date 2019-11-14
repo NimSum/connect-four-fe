@@ -12,6 +12,7 @@ import generateAvatar from '../../utils/nameAvatarGenerator';
 import Typography from '@material-ui/core/Typography';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import DoneIcon from '@material-ui/icons/Done';
+import Tooltip from '@material-ui/core/Tooltip';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import { Link } from 'react-router-dom';
@@ -94,30 +95,38 @@ function PlayerDrawer(props) {
       </div>
       <Divider />
       <List className={classes.menuList}>
-        <ListItem button key={"Stats"} onClick={handlePlayerStats}>
-          <ListItemIcon>
-            <EqualizerIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Stats"} />
-        </ListItem>
-        <ListItem button key={"Achievements"} onClick={handleAchievements}>
-          <ListItemIcon>
-            <DoneIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Achievements"} />
-        </ListItem>
-        <ListItem button key={"Account"} onClick={handlePlayerDetails}>
-          <ListItemIcon>
-            <PermIdentityIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Account"} />
-        </ListItem>
-        <ListItem button key={"Friends"} onClick={handleFriends}>
-          <ListItemIcon>
-            <PeopleOutlineIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Friends"} />
-        </ListItem>
+        <Tooltip title="Under Development">
+          <ListItem button key={"Stats"} onClick={handlePlayerStats}>
+            <ListItemIcon>
+              <EqualizerIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Stats"} />
+          </ListItem>
+        </Tooltip>
+        <Tooltip title="Under Development">
+          <ListItem button key={"Achievements"} onClick={handleAchievements}>
+            <ListItemIcon>
+              <DoneIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Achievements"} />
+          </ListItem>
+        </Tooltip>       
+        <Tooltip title="Under Development">
+          <ListItem button key={"Account"} onClick={handlePlayerDetails}>
+            <ListItemIcon>
+              <PermIdentityIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Account"} />
+          </ListItem>
+        </Tooltip>
+        <Tooltip title="Under Development">
+          <ListItem button key={"Friends"} onClick={handleFriends}>
+            <ListItemIcon>
+              <PeopleOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Friends"} />
+          </ListItem>
+        </Tooltip>
       </List>
       <Divider />
       <List  className={classes.menuList}>
