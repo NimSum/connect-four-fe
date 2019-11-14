@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
@@ -10,11 +10,11 @@ import theme from '../../MUI_theme';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import generateAvatar from '../../utils/nameAvatarGenerator';
 import Typography from '@material-ui/core/Typography';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
 import DoneIcon from '@material-ui/icons/Done';
 import Tooltip from '@material-ui/core/Tooltip';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import PlayerDetails from './PlayerDetails';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { leaveWorldChat, leaveGame } from '../../websocket-api';
@@ -59,18 +59,31 @@ const useStyles = makeStyles(theme => ({
 
 function PlayerDrawer(props) {
   const classes = useStyles(theme);
+  const [selectedItem, setSelectedItem] = useState('');
 
   const handlePlayerDetails = () => {
+    setSelectedItem('PLAYER_DETAILS');
     /// SHOW USER DETAILS
   };
 
   const handleAchievements = () => {
+    setSelectedItem('PLAYER_ACHIEVEMENTS');
     /// HANDLE ACHIEVEMENTS
   };
 
   const handleFriends = () => {
+    setSelectedItem('PLAYER_FRIENDS');
     /// HANDLE SHOW FRIENDS
   };
+
+  const generateSelectedItem = () => {
+    switch(selectedItem) {
+      case 'PLAYER_DETAILS':
+        return <PlayerDetails player={props.player} />
+      default:
+        return null;
+    }
+  }
 
   const handleLogout = () => {
     leaveWorldChat();
@@ -98,6 +111,7 @@ function PlayerDrawer(props) {
             <ListItemText primary={"Account"} />
           </ListItem>
         </Tooltip>
+        {generateSelectedItem()}
         <Tooltip title="Under Development">
           <ListItem button key={"Achievements"} onClick={handleAchievements}>
             <ListItemIcon>
