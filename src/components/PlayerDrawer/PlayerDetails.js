@@ -6,6 +6,22 @@ import Grow from '@material-ui/core/Grow';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  infoContainer: {
+    textAlign: 'left',
+    width: '100%'
+  },
+  gameHistoryList: {
+    height: '100px',
+    overflow: 'scroll'
+  }
+}));
+
 function PlayerDetails({player}) {
   const classes = useStyles();
   const {
