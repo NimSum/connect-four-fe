@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/connect-four-fe/static/js/main.e3841f92.chunk.js",
-    "main.js.map": "/connect-four-fe/static/js/main.e3841f92.chunk.js.map",
+    "main.js": "/connect-four-fe/static/js/main.4d53c4b4.chunk.js",
+    "main.js.map": "/connect-four-fe/static/js/main.4d53c4b4.chunk.js.map",
     "runtime-main.js": "/connect-four-fe/static/js/runtime-main.6c4f924e.js",
     "runtime-main.js.map": "/connect-four-fe/static/js/runtime-main.6c4f924e.js.map",
-    "static/js/2.02f7b2ab.chunk.js": "/connect-four-fe/static/js/2.02f7b2ab.chunk.js",
-    "static/js/2.02f7b2ab.chunk.js.map": "/connect-four-fe/static/js/2.02f7b2ab.chunk.js.map",
+    "static/js/2.db16cd62.chunk.js": "/connect-four-fe/static/js/2.db16cd62.chunk.js",
+    "static/js/2.db16cd62.chunk.js.map": "/connect-four-fe/static/js/2.db16cd62.chunk.js.map",
     "index.html": "/connect-four-fe/index.html",
-    "precache-manifest.4c16e2b28c4bd100f38ec1ab153d9931.js": "/connect-four-fe/precache-manifest.4c16e2b28c4bd100f38ec1ab153d9931.js",
+    "precache-manifest.4f2ebc36517c2d421d2f52fe7ea6a5de.js": "/connect-four-fe/precache-manifest.4f2ebc36517c2d421d2f52fe7ea6a5de.js",
     "service-worker.js": "/connect-four-fe/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.6c4f924e.js",
-    "static/js/2.02f7b2ab.chunk.js",
-    "static/js/main.e3841f92.chunk.js"
+    "static/js/2.db16cd62.chunk.js",
+    "static/js/main.4d53c4b4.chunk.js"
   ]
 }
