@@ -38,8 +38,6 @@ const useStyles = makeStyles(theme => ({
 		dispaly: "flex",
 		flexDirection: "column"
 	},
-  }, 
-	},
 	slot: {
 		borderRadius: "50%",
 		width: "8vw",
@@ -59,10 +57,6 @@ const useStyles = makeStyles(theme => ({
 	emptySlot: {
 		background: ({ palette, oppWin, mainWin, isActive }) =>
 			oppWin || mainWin || !isActive
-      oppWin || mainWin || !isActive 
-			oppWin || mainWin || !isActive
-				? palette.dark.midBlue
-        ? palette.dark.midBlue 
 				? palette.dark.midBlue
 				: palette.light.lighterGray
 	},
@@ -109,31 +103,13 @@ const slotProps = {
 
 function GameGrid(props) {
 	const {
-  const { 
-	const {
-		grid,
-    grid, 
 		grid,
 		gameStatus,
-    gameStatus, 
-		gameStatus,
-		currentTurn,
-    currentTurn, 
 		currentTurn,
 		currentPlayer,
-    currentPlayer, 
-		currentPlayer,
-		players,
-    players, 
 		players,
 		prevSlot,
-    prevSlot, 
-		prevSlot,
 		winner,
-    winner, 
-		winner,
-		resetGame,
-    resetGame, 
 		resetGame,
 		resetPlayerReady
 	} = props;
@@ -149,10 +125,6 @@ function GameGrid(props) {
 
 	const classes = useStyles({
 		...theme,
-    ...theme, 
-		...theme,
-		main: main.chipColor,
-    main: main.chipColor, 
 		main: main.chipColor,
 		mainWin,
 		opp: opponent.chipColor,
@@ -206,8 +178,6 @@ function GameGrid(props) {
 		switch (true) {
 			case slot === main.slot:
 				return mainBg;
-        return mainBg;       
-				return mainBg;
 			case slot === opponent.slot:
 				return oppBg;
 			case hovered && isBottom && !oppWin && !mainWin:
@@ -240,16 +210,8 @@ function GameGrid(props) {
 
 			return (
 				<Box
-      <Box 
-				<Box
-					key={`col${idx}`}
-        key={`col${idx}`} 
 					key={`col${idx}`}
 					className={classes.column}
-        className={classes.column} 
-					className={classes.column}
-					id={`xCoordinate:${idx}`}
-        id={`xCoordinate:${idx}`} 
 					id={`xCoordinate:${idx}`}
 					onMouseEnter={handleHovered}
 				>
@@ -260,10 +222,6 @@ function GameGrid(props) {
 						const bottomHoveredSlot = (
 							<Fade in={isBottom}>
 								<Box
-                <Box 
-								<Box
-									onClick={handleChipPlacement}
-                  onClick={handleChipPlacement} 
 									onClick={handleChipPlacement}
 									className={`${classes.slot} ${handleSlotStyle(
 										gridSlot,
@@ -280,11 +238,7 @@ function GameGrid(props) {
 						);
 						const defaultSlot = (
 							<Box
-              <Box 
-							<Box
 								onClick={handleHovered}
-								key={`col${idx}row${i}player${gridSlot}`}
-                key={`col${idx}row${i}player${gridSlot}`} 
 								key={`col${idx}row${i}player${gridSlot}`}
 								className={`${classes.slot} ${handleSlotStyle(
 									gridSlot,
@@ -300,8 +254,6 @@ function GameGrid(props) {
 								in={isNew}
 								timeout={600}
 							>
-								<Box
-                <Box 
 								<Box
 									className={`${classes.slot} ${handleSlotStyle(
 										gridSlot,
